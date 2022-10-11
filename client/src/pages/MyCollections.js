@@ -1,5 +1,11 @@
 import React from "react";
+import Header from "../components/Header";
 
 export default function MyCollections() {
-  return <h1>MyCollections</h1>
+  return (
+    <>
+      <Header />
+      <h1>MyCollections</h1>
+    </>
+  );
 }

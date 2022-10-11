@@ -1,5 +1,11 @@
 import React from "react";
+import Header from "../components/Header";
 
 export default function CollectionPage() {
-  return <h1>CollectionPage</h1>
+  return (
+    <>
+      <Header />
+      <h1>CollectionPage</h1>
+    </>
+  );
 }
