@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AddCollection from "./pages/AddCollection";
 import AddItem from "./pages/AddItem";
 import AdminPage from "./pages/AdminPage";
@@ -14,35 +14,6 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-          <li>
-            <Link to="/register">Register</Link>
-          </li>
-          <li>
-            <Link to="/adminpage">Admin Page</Link>
-          </li>
-          <li>
-            <Link to="/mycollections">My Collection</Link>
-          </li>
-          <li>
-            <Link to="/addcollection">Add Collection</Link>
-          </li>
-          <li>
-            <Link to="/collectionpage">Collection Page</Link>
-          </li>
-          <li>
-            <Link to="/additem">Add Item</Link>
-          </li>
-          <li>
-            <Link to="/itempage">Item Page</Link>
-          </li>
-        </ul>
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
