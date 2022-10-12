@@ -9,6 +9,7 @@ import ItemPage from "./pages/ItemPage";
 import Login from "./pages/Login";
 import MyCollections from "./pages/MyCollections";
 import Register from "./pages/Register";
+import PageNotFound from "./pages/PageNotFound";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/additem" element={<AddItem />} />
           <Route path="/itempage" element={<ItemPage />} />
           <Route path="/" element={<Home />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Router>
     </div>
