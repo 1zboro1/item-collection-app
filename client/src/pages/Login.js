@@ -13,13 +13,17 @@ export default function Login() {
       <Header />
       <Container fluid>
         <h1
-          style={{ fontSize: "4rem", textAlign: "center", marginTop: "100px" }}
+          style={{ fontSize: "3rem", textAlign: "center", marginTop: "3rem" }}
         >
           Sign-in to your account
         </h1>
         <Form style={{ marginTop: "70px" }}>
           <Row className="mb-3">
-            <Col lg={{ span: 2, offset: 5 }}>
+            <Col
+              xs={{ span: 10, offset: 1 }}
+              lg={{ span: 6, offset: 3 }}
+              xl={{ span: 2, offset: 5 }}
+            >
               <Form.Group controlId="emailInput">
                 <Form.Label className="mx-3">
                   <strong>E-mail</strong>
@@ -36,7 +40,11 @@ export default function Login() {
             </Col>
           </Row>
           <Row>
-            <Col lg={{ span: 2, offset: 5 }}>
+            <Col
+              xs={{ span: 10, offset: 1 }}
+              lg={{ span: 6, offset: 3 }}
+              xl={{ span: 2, offset: 5 }}
+            >
               <Form.Group controlId="passwordInput">
                 <Form.Label className="mx-3">
                   <strong>Password</strong>
@@ -53,7 +61,11 @@ export default function Login() {
             </Col>
           </Row>
           <Row className="mt-5">
-            <Col lg={{ span: 2, offset: 5 }}>
+            <Col
+              xs={{ span: 10, offset: 1 }}
+              lg={{ span: 6, offset: 3 }}
+              xl={{ span: 2, offset: 5 }}
+            >
               <div className="d-grid gap-2 ">
                 <Button type="submit">
                   <strong>LOGIN</strong>
@@ -62,7 +74,12 @@ export default function Login() {
             </Col>
           </Row>
           <Row className="mt-3">
-            <Col lg={{ span: 2, offset: 5 }} className="text-center">
+            <Col
+              xs={{ span: 10, offset: 1 }}
+              lg={{ span: 6, offset: 3 }}
+              xl={{ span: 2, offset: 5 }}
+              className="text-center"
+            >
               <Link to="/register">
                 <h6>Click here to register</h6>
               </Link>
