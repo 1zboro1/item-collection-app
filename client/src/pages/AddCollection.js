@@ -19,7 +19,7 @@ export default function AddCollection() {
         >
           Create new collection
         </h1>
-        <Form style={{ marginTop: "70px" }}>
+        <Form style={{ marginTop: "50px" }}>
           <Row className="mb-3">
             <Col
               xs={{ span: 8, offset: 2 }}
@@ -65,7 +65,7 @@ export default function AddCollection() {
               <Form.Group controlId="descriptionInput">
                 <Form.Control
                   as="textarea"
-                  rows={10}
+                  rows={5}
                   value={description}
                   onChange={(e) => {
                     setDescription(e.target.value);
