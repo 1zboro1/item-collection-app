@@ -20,7 +20,11 @@ export default function Register() {
         </h1>
         <Form style={{ marginTop: "70px" }}>
           <Row className="mb-3">
-            <Col xs={{ span: 10, offset: 1 }} lg={{ span: 6, offset: 3 }} xl={{ span: 2, offset: 5 }}>
+            <Col
+              xs={{ span: 10, offset: 1 }}
+              lg={{ span: 4, offset: 4 }}
+              xxl={{ span: 2, offset: 5 }}
+            >
               <Form.Group controlId="usernameInput">
                 <Form.Label className="mx-3">
                   <strong>Username</strong>
@@ -37,7 +41,11 @@ export default function Register() {
             </Col>
           </Row>
           <Row className="mb-3">
-            <Col xs={{ span: 10, offset: 1 }} lg={{ span: 6, offset: 3 }} xl={{ span: 2, offset: 5 }}>
+            <Col
+              xs={{ span: 10, offset: 1 }}
+              lg={{ span: 4, offset: 4 }}
+              xxl={{ span: 2, offset: 5 }}
+            >
               <Form.Group controlId="emailInput">
                 <Form.Label className="mx-3">
                   <strong>E-mail</strong>
@@ -54,7 +62,11 @@ export default function Register() {
             </Col>
           </Row>
           <Row>
-            <Col xs={{ span: 10, offset: 1 }} lg={{ span: 6, offset: 3 }} xl={{ span: 2, offset: 5 }}>
+            <Col
+              xs={{ span: 10, offset: 1 }}
+              lg={{ span: 4, offset: 4 }}
+              xxl={{ span: 2, offset: 5 }}
+            >
               <Form.Group controlId="passwordInput">
                 <Form.Label className="mx-3">
                   <strong>Password</strong>
@@ -73,8 +85,8 @@ export default function Register() {
           <Row className="mt-5">
             <Col
               xs={{ span: 10, offset: 1 }}
-              lg={{ span: 6, offset: 3 }}
-              xl={{ span: 2, offset: 5 }}
+              lg={{ span: 4, offset: 4 }}
+              xxl={{ span: 2, offset: 5 }}
             >
               <div className="d-grid gap-2 ">
                 <Button type="submit">
@@ -85,8 +97,8 @@ export default function Register() {
           </Row>
           <Row className="mt-3">
             <Col
-              lg={{ span: 6, offset: 3 }}
-              xl={{ span: 2, offset: 5 }}
+              lg={{ span: 4, offset: 4 }}
+              xxl={{ span: 2, offset: 5 }}
               className="text-center"
             >
               <Link to="/login">
