@@ -1,9 +1,37 @@
 import React from "react";
+import { useState } from "react";
 import Header from "../components/Header";
 import { Row, Col, Table } from "react-bootstrap";
 import Manage from "../components/Manage";
 
 export default function AdminPage() {
+  let [blocked, setBlocked] = useState(false);
+  let [admin, setAdmin] = useState(false);
+
+  const clickOverview = () => {
+    console.log("overview");
+  };
+  const clickManageBlock = () => {
+    if (blocked === false) {
+      setBlocked(true);
+      console.log("block");
+    } else {
+      setBlocked(false);
+      console.log("unblocked");
+    }
+  };
+  const clickDelete = () => {
+    console.log("delete");
+  };
+  const clickManagePermission = () => {
+    if (admin === false) {
+      setAdmin(true);
+      console.log("admin");
+    } else {
+      setAdmin(false);
+      console.log("nonAdmin");
+    }
+  };
   return (
     <>
       <Header />
@@ -29,7 +57,16 @@ export default function AdminPage() {
                 <td>1</td>
                 <td>Adams</td>
                 <td>Otto</td>
-                <td>@mdo</td>
+                <td className="text-center">
+                  <Manage
+                    overview={clickOverview}
+                    block={clickManageBlock}
+                    delete={clickDelete}
+                    permission={clickManagePermission}
+                    admin={admin}
+                    blocked={blocked}
+                  />
+                </td>
               </tr>
             </tbody>
           </Table>
