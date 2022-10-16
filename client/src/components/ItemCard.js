@@ -1,9 +1,25 @@
 import React from "react";
+import { Card } from "react-bootstrap";
 
-export default function ItemCard() {
+export default function ItemCard(props) {
   return (
     <React.Fragment>
-      <h1>item</h1>
+      <Card style={{ width: "20rem" }}>
+        <Card.Img
+          variant="top"
+          src={props.image}
+          style={{
+            maxHeight: "16rem",
+            objectFit: "contain",
+            marginTop: "1rem",
+          }}
+        />
+        <Card.Body>
+          <Card.Title className="text-center">Card Title</Card.Title>
+          <Card.Text>Collection:</Card.Text>
+          <Card.Text>Author:</Card.Text>
+        </Card.Body>
+      </Card>
     </React.Fragment>
   );
 }
