@@ -1,13 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import CollectionCard from "../components/CollectionCard";
 import cardImage from "../imgs/strategia_grande.jpg";
 
 export default function MyCollections() {
-  const addCollectionClick = () => {
-    console.log("click");
-  };
   return (
     <>
       <Header />
@@ -63,9 +61,11 @@ export default function MyCollections() {
             style={{ display: "flex", justifyContent: "center" }}
           >
             <div className="d-grid gap-2 ">
-              <Button type="submit" size="lg" onClick={addCollectionClick}>
-                <strong>ADD COLLECTION</strong>
-              </Button>
+              <Link to="/addcollection">
+                <Button type="submit" size="lg">
+                  <strong>ADD COLLECTION</strong>
+                </Button>
+              </Link>
             </div>
           </Col>
         </Row>

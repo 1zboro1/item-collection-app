@@ -52,14 +52,8 @@ export default function Header() {
             <Dropdown.Item as={Link} to="/mycollections">
               My Collections
             </Dropdown.Item>
-            <Dropdown.Item as={Link} to="/addcollection">
-              Add Collection
-            </Dropdown.Item>
             <Dropdown.Item as={Link} to="/collectionpage">
               Collection Page
-            </Dropdown.Item>
-            <Dropdown.Item as={Link} to="/additem">
-              Add Item
             </Dropdown.Item>
             <Dropdown.Item as={Link} to="/itempage">
               Item Page

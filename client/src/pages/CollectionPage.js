@@ -1,13 +1,11 @@
 import React from "react";
 import Header from "../components/Header";
+import { Link } from "react-router-dom";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import ItemCard from "../components/ItemCard";
 import cardImage from "../imgs/strategia_grande.jpg";
 
 export default function CollectionPage() {
-  const addItemClick = () => {
-    console.log("click");
-  };
   return (
     <>
       <Header />
@@ -75,9 +73,11 @@ export default function CollectionPage() {
         <Row className="mt-5 mb-5">
           <Col md={{ span: 4, offset: 4 }} lg={{ span: 2, offset: 5 }}>
             <div className="d-grid gap-2 ">
-              <Button type="submit" size="lg" onClick={addItemClick}>
-                <strong>ADD ITEM</strong>
-              </Button>
+              <Link to="/additem">
+                <Button type="submit" size="lg">
+                  <strong>ADD ITEM</strong>
+                </Button>
+              </Link>
             </div>
           </Col>
         </Row>
