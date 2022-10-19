@@ -1,10 +1,12 @@
 import React from "react";
 import Header from "../components/Header";
 import useLocalStorage from "use-local-storage";
+import { useTranslation } from "react-i18next";
 import { Figure, Row, Col, Container } from "react-bootstrap";
 import cardImage from "../imgs/strategia_grande.jpg";
 
 export default function ItemPage() {
+  const { t } = useTranslation();
   const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");
   const switchTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
@@ -24,7 +26,7 @@ export default function ItemPage() {
           marginBottom: "1.5rem",
         }}
       >
-        Item Name
+        Julitka
       </h1>
       <Container>
         <Row>
@@ -34,7 +36,7 @@ export default function ItemPage() {
             style={{ display: "flex", justifyContent: "center" }}
           >
             <Figure>
-              <Figure.Image src={cardImage} style={{ maxHeight: "400px" }} />
+              <Figure.Image src="https://scontent-waw1-1.xx.fbcdn.net/v/t1.15752-9/311926933_1483319565464204_5655898759058583758_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=ae9488&_nc_ohc=r6EsO2yQCwEAX_Qw0YC&_nc_ht=scontent-waw1-1.xx&oh=03_AdSJ8GdBMlr2cRxoRIKVf6L6ZtVwer7Ul87djebm4SzeSA&oe=63753057" style={{ maxHeight: "400px" }} />
             </Figure>
           </Col>
         </Row>
@@ -42,23 +44,13 @@ export default function ItemPage() {
         <Row>
           <Col xs={{ span: 10, offset: 1 }} sm={{ span: 6, offset: 3 }}>
             <p style={{ textAlign: "justify", marginTop: "20px" }}>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt
-              praesentium soluta fuga illo dolorum excepturi corporis esse
-              impedit magnam hic sequi consectetur amet commodi quisquam, vitae
-              quos, earum totam voluptatum. Vero, excepturi! Nisi molestiae
-              libero mollitia laboriosam, nulla temporibus tempore odio
-              asperiores. Possimus distinctio perferendis iusto at perspiciatis,
-              debitis commodi sint magnam optio ipsa sapiente error atque
-              voluptatibus vel earum. Dolor dicta accusantium eius numquam,
-              voluptatibus aliquam placeat laudantium eum ipsam aut ut enim
-              praesentium eaque ab nam autem omnis mollitia minus illum cum iure
-              rerum tempore officia. Sunt, possimus?
+              Mały nygus, co za dużo gada. Po prostu nie przestaje.
             </p>
           </Col>
         </Row>
         <Row>
           <Col xs={{ span: 10, offset: 1 }} sm={{ span: 6, offset: 3 }}>
-            <h6 className="mb-3">Tags:</h6>
+            <h6 className="mb-3">{t("tags")}wredne</h6>
           </Col>
         </Row>
       </Container>

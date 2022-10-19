@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import useLocalStorage from "use-local-storage";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -7,6 +8,7 @@ import { Button, Form, Container, Row, Col } from "react-bootstrap";
 import Header from "../components/Header";
 
 export default function Register() {
+  const { t } = useTranslation();
   const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");
   const switchTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
@@ -19,13 +21,13 @@ export default function Register() {
   const [username, setUsername] = useState("");
   return (
     <>
-      <div className={pageTheme} style={{ height: "100vh" }}>
+      <div className={pageTheme} style={{ minHeight: "100vh" }}>
         <Header theme={theme} click={switchTheme} />
         <Container fluid>
           <h1
             style={{ fontSize: "3rem", textAlign: "center", marginTop: "3rem" }}
           >
-            Register account
+            {t("registerHeader")}
           </h1>
           <Form style={{ marginTop: "70px" }}>
             <Row className="mb-3">
@@ -36,7 +38,7 @@ export default function Register() {
               >
                 <Form.Group controlId="usernameInput">
                   <Form.Label className="mx-3">
-                    <strong>Username</strong>
+                    <strong>{t("username")}</strong>
                   </Form.Label>
                   <Form.Control
                     type="text"
@@ -78,7 +80,7 @@ export default function Register() {
               >
                 <Form.Group controlId="passwordInput">
                   <Form.Label className="mx-3">
-                    <strong>Password</strong>
+                    <strong>{t("password")}</strong>
                   </Form.Label>
                   <Form.Control
                     type="password"
@@ -99,7 +101,7 @@ export default function Register() {
               >
                 <div className="d-grid gap-2 ">
                   <Button type="submit">
-                    <strong>REGISTER</strong>
+                    <strong>{t("registerButton")}</strong>
                   </Button>
                 </div>
               </Col>
@@ -111,7 +113,7 @@ export default function Register() {
                 className="text-center"
               >
                 <Link to="/login">
-                  <h6>Already have an account? Sign-in here</h6>
+                  <h6>{t("registerToLoginLink")}</h6>
                 </Link>
               </Col>
             </Row>

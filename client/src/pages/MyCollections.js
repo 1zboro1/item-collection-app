@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import useLocalStorage from "use-local-storage";
 import Header from "../components/Header";
 import { Container, Row, Col, Button } from "react-bootstrap";
@@ -7,6 +8,7 @@ import CollectionCard from "../components/CollectionCard";
 import cardImage from "../imgs/strategia_grande.jpg";
 
 export default function MyCollections() {
+  const { t } = useTranslation();
   const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");
   const switchTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
@@ -21,7 +23,7 @@ export default function MyCollections() {
         className="text-center"
         style={{ fontSize: "3rem", textAlign: "center", marginTop: "3rem" }}
       >
-        My collections
+        {t("myCollHeader")}
       </h1>
       <Row className="mx-auto mt-5">
         <Col
@@ -71,7 +73,7 @@ export default function MyCollections() {
             <div className="d-grid gap-2 mb-5 ">
               <Link to="/addcollection">
                 <Button type="submit" size="lg">
-                  <strong>ADD COLLECTION</strong>
+                  <strong>{t("addCollButton")}</strong>
                 </Button>
               </Link>
             </div>

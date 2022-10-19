@@ -1,12 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import useLocalStorage from "use-local-storage";
+import { useTranslation } from "react-i18next";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Form, Container, Row, Col } from "react-bootstrap";
 import Header from "../components/Header";
 import ItemImage from "../components/ItemImage";
 
 export default function AddItem() {
+  const { t } = useTranslation();
   const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");
   const switchTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
@@ -24,7 +26,7 @@ export default function AddItem() {
         <h1
           style={{ fontSize: "3rem", textAlign: "center", marginTop: "3rem" }}
         >
-          Add item to collection
+          {t("addItemHeader")}
         </h1>
         <Form style={{ marginTop: "50px" }}>
           <Row className="mb-3">
@@ -42,7 +44,7 @@ export default function AddItem() {
                     setName(e.target.value);
                   }}
                   className="square border border-primary border-4"
-                  placeholder="Name..."
+                  placeholder={t("name")}
                 />
               </Form.Group>
             </Col>
@@ -63,7 +65,7 @@ export default function AddItem() {
                     setDescription(e.target.value);
                   }}
                   className="square border border-primary border-4"
-                  placeholder="Description..."
+                  placeholder={t("description")}
                 />
               </Form.Group>
             </Col>
@@ -83,7 +85,7 @@ export default function AddItem() {
                     setTags(e.target.value);
                   }}
                   className="square border border-primary border-4"
-                  placeholder="Tags..."
+                  placeholder={t("tagsV2")}
                 />
               </Form.Group>
             </Col>
@@ -107,7 +109,7 @@ export default function AddItem() {
             >
               <div className="d-grid gap-2 mb-2">
                 <Button type="submit">
-                  <strong>ADD NOW</strong>
+                  <strong>{t("addNowButton")}</strong>
                 </Button>
               </div>
             </Col>

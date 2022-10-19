@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 
 const lngs = {
   en: { nativeName: "English" },
-  pl: { nativeName: "Polish" },
+  pl: { nativeName: "Polski" },
 };
 
 export default function Header(props) {
@@ -46,25 +46,25 @@ export default function Header(props) {
         >
           <DropdownButton id="dropdown-menu" title="Menu" size="lg">
             <Dropdown.Item as={Link} to="/">
-              Home
+              {t("home")}
             </Dropdown.Item>
             <Dropdown.Item as={Link} to="/login">
-              Login
+            {t("login")}
             </Dropdown.Item>
             <Dropdown.Item as={Link} to="/register">
-              Register
+            {t("register")}
             </Dropdown.Item>
             <Dropdown.Item as={Link} to="/adminpage">
-              Admin Page
+            {t("adminPage")}
             </Dropdown.Item>
             <Dropdown.Item as={Link} to="/mycollections">
-              My Collections
+            {t("myColl")}
             </Dropdown.Item>
             <Dropdown.Item as={Link} to="/collectionpage">
-              Collection Page
+            {t("collPage")}
             </Dropdown.Item>
             <Dropdown.Item as={Link} to="/itempage">
-              Item Page
+            {t("itemPage")}
             </Dropdown.Item>
             <Dropdown.Divider />
             <Dropdown.Item onClick={props.click}>
@@ -80,6 +80,7 @@ export default function Header(props) {
                 <Button
                   variant="secondary"
                   type="submit"
+                  className="mx-1"
                   key={lng}
                   onClick={() => i18n.changeLanguage(lng)}
                   disabled={i18n.resolvedLanguage === lng}

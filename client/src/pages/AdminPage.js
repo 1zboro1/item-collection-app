@@ -1,11 +1,13 @@
 import React from "react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import useLocalStorage from "use-local-storage";
 import Header from "../components/Header";
 import { Row, Col, Table, Container } from "react-bootstrap";
 import Manage from "../components/Manage";
 
 export default function AdminPage() {
+  const { t } = useTranslation();
   const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");
   const switchTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
@@ -48,7 +50,7 @@ export default function AdminPage() {
         className="text-center"
         style={{ fontSize: "3rem", textAlign: "center", marginTop: "3rem" }}
       >
-        Administration
+        {t("administrationHeader")}
       </h1>
       <Container>
         <Row className="mt-5">
@@ -58,10 +60,10 @@ export default function AdminPage() {
                 <tr>
                   <th style={{ width: "5%", textAlign: "center" }}>#</th>
                   <th style={{ width: "20%", textAlign: "center" }}>
-                    Username
+                    {t("username")}
                   </th>
                   <th style={{ width: "25%", textAlign: "center" }}>E-mail</th>
-                  <th style={{ textAlign: "center" }}>Manage</th>
+                  <th style={{ textAlign: "center" }}>{t("tableManage")}</th>
                 </tr>
               </thead>
               <tbody className={tableTextColor}>

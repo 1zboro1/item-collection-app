@@ -1,9 +1,11 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useTranslation } from "react-i18next";
 import { Container, Button, Figure, Row, Col } from "react-bootstrap";
 import imgPlaceholder from "../imgs/placeholder-image.png";
 
 export default function ItemImage(props) {
+  const { t } = useTranslation();
   const componentTheme =
     props.theme === "light"
       ? "square border border-primary border-4 bg-light text-dark"
@@ -28,7 +30,7 @@ export default function ItemImage(props) {
           xs={{ span: 12, offset: 0 }}
           xl={{ span: 5, offset: 0 }}
         >
-          <strong className="">Upload item picture</strong>
+          <strong className="">{t("uploadItemText")}</strong>
         </Col>
         <Col
           className="my-auto"
@@ -37,7 +39,7 @@ export default function ItemImage(props) {
           xl={{ span: 3 }}
         >
           <div className="d-grid gap-2 ">
-            <Button variant="primary">Upload</Button>
+            <Button variant="primary">{t("uploadButton")}</Button>
           </div>
         </Col>
       </Row>

@@ -1,7 +1,9 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Card } from "react-bootstrap";
 
 export default function CollectionCard(props) {
+  const { t } = useTranslation();
   const colors =
     props.theme === "light"
       ? "bg-light text-dark mb-2"
@@ -19,8 +21,8 @@ export default function CollectionCard(props) {
           }}
         />
         <Card.Body>
-          <Card.Title className="text-center">Collection name</Card.Title>
-          <Card.Text>Type:</Card.Text>
+          <Card.Title className="text-center">{t("colIndexName")}</Card.Title>
+          <Card.Text>{t("colIndexType")}</Card.Text>
         </Card.Body>
       </Card>
     </React.Fragment>

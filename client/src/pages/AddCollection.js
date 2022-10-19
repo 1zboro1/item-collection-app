@@ -1,12 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import useLocalStorage from "use-local-storage";
+import { useTranslation } from "react-i18next";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Form, Container, Row, Col } from "react-bootstrap";
 import Header from "../components/Header";
 import CollectionImage from "../components/CollectionImage";
 
 export default function AddCollection() {
+  const { t } = useTranslation();
   const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");
   const switchTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
@@ -25,7 +27,7 @@ export default function AddCollection() {
         <h1
           style={{ fontSize: "3rem", textAlign: "center", marginTop: "3rem" }}
         >
-          Create new collection
+          {t("createCollHeader")}
         </h1>
         <Form style={{ marginTop: "50px" }}>
           <Row className="mb-3">
@@ -43,7 +45,7 @@ export default function AddCollection() {
                     setName(e.target.value);
                   }}
                   className="square border border-primary border-4 mb-1"
-                  placeholder="Name..."
+                  placeholder={t("name")}
                 />
               </Form.Group>
             </Col>
@@ -61,7 +63,7 @@ export default function AddCollection() {
                     setType(e.target.value);
                   }}
                   className="square border border-primary border-4"
-                  placeholder="Type..."
+                  placeholder={t("type")}
                 />
               </Form.Group>
             </Col>
@@ -82,7 +84,7 @@ export default function AddCollection() {
                     setDescription(e.target.value);
                   }}
                   className="square border border-primary border-4"
-                  placeholder="Description..."
+                  placeholder={t("description")}
                 />
               </Form.Group>
             </Col>
@@ -102,7 +104,7 @@ export default function AddCollection() {
                     setTags(e.target.value);
                   }}
                   className="square border border-primary border-4"
-                  placeholder="Tags..."
+                  placeholder={t("tagsV2")}
                 />
               </Form.Group>
             </Col>
@@ -126,7 +128,7 @@ export default function AddCollection() {
             >
               <div className="d-grid gap-2 mb-2">
                 <Button type="submit">
-                  <strong>CREATE NOW</strong>
+                  <strong>{t("createNowButton")}</strong>
                 </Button>
               </div>
             </Col>

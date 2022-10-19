@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../components/Header";
+import { useTranslation } from "react-i18next";
 import useLocalStorage from "use-local-storage";
 import { Link } from "react-router-dom";
 import { Container, Row, Col, Button } from "react-bootstrap";
@@ -7,6 +8,7 @@ import ItemCard from "../components/ItemCard";
 import cardImage from "../imgs/strategia_grande.jpg";
 
 export default function CollectionPage() {
+  const { t } = useTranslation();
   const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");
   const switchTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
@@ -23,8 +25,8 @@ export default function CollectionPage() {
       >
         CollectionPage
       </h1>
-      <h4 style={{ textAlign: "center" }}>Type: books</h4>
-      <h6 style={{ textAlign: "center" }}>Tags: </h6>
+      <h4 style={{ textAlign: "center" }}>{t("colIndexType")}books</h4>
+      <h6 style={{ textAlign: "center" }}>{t("tags")}</h6>
       <Container>
         <p style={{ textAlign: "justify", marginTop: "20px" }}>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt
@@ -83,12 +85,12 @@ export default function CollectionPage() {
             style={{ display: "flex", justifyContent: "center" }}
             xs={{ span: 6, offset: 3 }}
             md={{ span: 4, offset: 4 }}
-            lg={{ span: 2, offset: 5 }}
+            lg={{ span: 4, offset: 4 }}
           >
             <div className="d-grid gap-2 mb-5">
               <Link to="/additem">
                 <Button type="submit" size="lg">
-                  <strong>ADD ITEM</strong>
+                  <strong>{t("addItemButton")}</strong>
                 </Button>
               </Link>
             </div>

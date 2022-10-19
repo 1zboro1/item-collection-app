@@ -1,7 +1,9 @@
 import React from "react";
 import { Card } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 
 export default function ItemCard(props) {
+  const { t } = useTranslation();
   const colors =
     props.theme === "light"
       ? "bg-light text-dark mb-2"
@@ -19,9 +21,9 @@ export default function ItemCard(props) {
           }}
         />
         <Card.Body>
-          <Card.Title className="text-center">Card Title</Card.Title>
-          <Card.Text>Collection:</Card.Text>
-          <Card.Text>Author:</Card.Text>
+          <Card.Title className="text-center">{t("itemIndexTitle")}</Card.Title>
+          <Card.Text>{t("itemIndexCollName")}</Card.Text>
+          <Card.Text>{t("itemIndexAuthor")}</Card.Text>
         </Card.Body>
       </Card>
     </React.Fragment>
