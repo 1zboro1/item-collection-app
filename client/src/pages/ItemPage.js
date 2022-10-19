@@ -1,12 +1,20 @@
 import React from "react";
 import Header from "../components/Header";
+import useLocalStorage from "use-local-storage";
 import { Figure, Row, Col, Container } from "react-bootstrap";
 import cardImage from "../imgs/strategia_grande.jpg";
 
 export default function ItemPage() {
+  const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");
+  const switchTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+  };
+  const pageTheme =
+    theme === "light" ? "bg-light text-dark" : "bg-dark text-white";
   return (
-    <>
-      <Header />
+    <div className={pageTheme} style={{ minHeight: "100vh" }}>
+      <Header theme={theme} click={switchTheme} />
       <h1
         className="text-center"
         style={{
@@ -18,7 +26,7 @@ export default function ItemPage() {
       >
         Item Name
       </h1>
-      <Container className="mb-2">
+      <Container>
         <Row>
           <Col
             xs={{ span: 10, offset: 1 }}
@@ -50,10 +58,10 @@ export default function ItemPage() {
         </Row>
         <Row>
           <Col xs={{ span: 10, offset: 1 }} sm={{ span: 6, offset: 3 }}>
-            <h6>Tags:</h6>
+            <h6 className="mb-3">Tags:</h6>
           </Col>
         </Row>
       </Container>
-    </>
+    </div>
   );
 }

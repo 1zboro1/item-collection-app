@@ -1,10 +1,19 @@
 import React from "react";
 import { useState } from "react";
+import useLocalStorage from "use-local-storage";
 import Header from "../components/Header";
 import { Row, Col, Table, Container } from "react-bootstrap";
 import Manage from "../components/Manage";
 
 export default function AdminPage() {
+  const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");
+  const switchTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+  };
+  const pageTheme =
+    theme === "light" ? "bg-light text-dark" : "bg-dark text-white";
+  const tableTextColor = theme === "light" ? "light" : "dark";
   let [blocked, setBlocked] = useState(false);
   let [admin, setAdmin] = useState(false);
 
@@ -33,8 +42,8 @@ export default function AdminPage() {
     }
   };
   return (
-    <>
-      <Header />
+    <div className={pageTheme} style={{ height: "100vh" }}>
+      <Header theme={theme} click={switchTheme} />
       <h1
         className="text-center"
         style={{ fontSize: "3rem", textAlign: "center", marginTop: "3rem" }}
@@ -43,8 +52,8 @@ export default function AdminPage() {
       </h1>
       <Container>
         <Row className="mt-5">
-          <Col xs={{ span: 12}}>
-            <Table striped bordered hover>
+          <Col xs={{ span: 12 }}>
+            <Table striped bordered hover variant={tableTextColor}>
               <thead>
                 <tr>
                   <th style={{ width: "5%", textAlign: "center" }}>#</th>
@@ -55,7 +64,7 @@ export default function AdminPage() {
                   <th style={{ textAlign: "center" }}>Manage</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className={tableTextColor}>
                 <tr>
                   <td>1</td>
                   <td>Adams</td>
@@ -76,6 +85,6 @@ export default function AdminPage() {
           </Col>
         </Row>
       </Container>
-    </>
+    </div>
   );
 }

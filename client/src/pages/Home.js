@@ -1,15 +1,23 @@
 import React from "react";
 import Header from "../components/Header";
+import useLocalStorage from "use-local-storage";
 import { Col, Row } from "react-bootstrap";
 import ItemIndex from "../components/ItemIndex";
 import CollectionIndex from "../components/CollectionIndex";
 import cardImage from "../imgs/strategia_grande.jpg";
-import TagCloud from "../components/TagCloud";
 
 export default function Home() {
+  const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");
+  const switchTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+  };
+  const pageTheme =
+    theme === "light" ? "bg-light text-dark" : "bg-dark text-white";
+
   return (
-    <>
-      <Header />
+    <div className={pageTheme} style={{ height: "100vh" }}>
+      <Header theme={theme} click={switchTheme} />
       <h2
         className="text-center"
         style={{ textAlign: "center", marginTop: "1rem" }}
@@ -21,31 +29,31 @@ export default function Home() {
           xxl={{ span: 2, offset: 1 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <ItemIndex image={cardImage} />
+          <ItemIndex image={cardImage} theme={theme} />
         </Col>
         <Col
           xxl={{ span: 2, offset: 0 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <ItemIndex image={cardImage} />
+          <ItemIndex image={cardImage} theme={theme} />
         </Col>
         <Col
           xxl={{ span: 2, offset: 0 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <ItemIndex image={cardImage} />
+          <ItemIndex image={cardImage} theme={theme} />
         </Col>
         <Col
           xxl={{ span: 2, offset: 0 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <ItemIndex image={cardImage} />
+          <ItemIndex image={cardImage} theme={theme} />
         </Col>
         <Col
           xxl={{ span: 2, offset: 0 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <ItemIndex image={cardImage} />
+          <ItemIndex image={cardImage} theme={theme} />
         </Col>
       </Row>
       <h2
@@ -59,33 +67,33 @@ export default function Home() {
           xxl={{ span: 2, offset: 1 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <CollectionIndex image={cardImage} />
+          <CollectionIndex image={cardImage} theme={theme} />
         </Col>
         <Col
           xxl={{ span: 2, offset: 0 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <CollectionIndex image={cardImage} />
+          <CollectionIndex image={cardImage} theme={theme} />
         </Col>
         <Col
           xxl={{ span: 2, offset: 0 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <CollectionIndex image={cardImage} />
+          <CollectionIndex image={cardImage} theme={theme} />
         </Col>
         <Col
           xxl={{ span: 2, offset: 0 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <CollectionIndex image={cardImage} />
+          <CollectionIndex image={cardImage} theme={theme} />
         </Col>
         <Col
           xxl={{ span: 2, offset: 0 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <CollectionIndex image={cardImage} />
+          <CollectionIndex image={cardImage} theme={theme} />
         </Col>
       </Row>
-    </>
+    </div>
   );
 }

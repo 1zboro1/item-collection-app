@@ -1,14 +1,22 @@
 import React from "react";
 import Header from "../components/Header";
+import useLocalStorage from "use-local-storage";
 import { Link } from "react-router-dom";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import ItemCard from "../components/ItemCard";
 import cardImage from "../imgs/strategia_grande.jpg";
 
 export default function CollectionPage() {
+  const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");
+  const switchTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+  };
+  const pageTheme =
+    theme === "light" ? "bg-light text-dark" : "bg-dark text-white";
   return (
-    <>
-      <Header />
+    <div className={pageTheme} style={{ minHeight: "100vh" }}>
+      <Header theme={theme} click={switchTheme} />
       <h1
         className="text-center"
         style={{ fontSize: "3rem", textAlign: "center", marginTop: "3rem" }}
@@ -36,48 +44,48 @@ export default function CollectionPage() {
           lg={{ span: 4, offset: 0 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <ItemCard image={cardImage} />
+          <ItemCard image={cardImage} theme={theme} />
         </Col>
         <Col
           lg={{ span: 4, offset: 0 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <ItemCard image={cardImage} />
+          <ItemCard image={cardImage} theme={theme} />
         </Col>
         <Col
           lg={{ span: 4, offset: 0 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <ItemCard image={cardImage} />
+          <ItemCard image={cardImage} theme={theme} />
         </Col>
         <Col
           lg={{ span: 4, offset: 0 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <ItemCard image={cardImage} />
+          <ItemCard image={cardImage} theme={theme} />
         </Col>
         <Col
           lg={{ span: 4, offset: 0 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <ItemCard image={cardImage} />
+          <ItemCard image={cardImage} theme={theme} />
         </Col>
         <Col
           lg={{ span: 4, offset: 0 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <ItemCard image={cardImage} />
+          <ItemCard image={cardImage} theme={theme} />
         </Col>
       </Row>
       <Container>
-        <Row className="mt-5 mb-5">
+        <Row className="mt-5">
           <Col
             style={{ display: "flex", justifyContent: "center" }}
             xs={{ span: 6, offset: 3 }}
             md={{ span: 4, offset: 4 }}
             lg={{ span: 2, offset: 5 }}
           >
-            <div className="d-grid gap-2 ">
+            <div className="d-grid gap-2 mb-5">
               <Link to="/additem">
                 <Button type="submit" size="lg">
                   <strong>ADD ITEM</strong>
@@ -87,6 +95,6 @@ export default function CollectionPage() {
           </Col>
         </Row>
       </Container>
-    </>
+    </div>
   );
 }

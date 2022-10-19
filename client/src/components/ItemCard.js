@@ -2,9 +2,13 @@ import React from "react";
 import { Card } from "react-bootstrap";
 
 export default function ItemCard(props) {
+  const colors =
+    props.theme === "light"
+      ? "bg-light text-dark"
+      : "bg-secondary bg-gradient text-white";
   return (
     <React.Fragment>
-      <Card style={{ width: "20rem" }}>
+      <Card style={{ width: "20rem" }} className={colors}>
         <Card.Img
           variant="top"
           src={props.image}

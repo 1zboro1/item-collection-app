@@ -10,7 +10,8 @@ import {
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-export default function Header() {
+export default function Header(props) {
+
   return (
     <Container className="bg-primary py-3" fluid>
       <Row className="mx-4">
@@ -57,6 +58,14 @@ export default function Header() {
             </Dropdown.Item>
             <Dropdown.Item as={Link} to="/itempage">
               Item Page
+            </Dropdown.Item>
+            <Dropdown.Item onClick={props.click}>
+              Dark mode{" "}
+              {props.theme === "light" ? (
+                <i className="fa-solid fa-toggle-off"></i>
+              ) : (
+                <i className="fa-solid fa-toggle-on"></i>
+              )}
             </Dropdown.Item>
           </DropdownButton>
         </Col>
