@@ -18,10 +18,11 @@ export default function ItemPage() {
       >
         Item Name
       </h1>
-      <Container>
+      <Container className="mb-2">
         <Row>
           <Col
-            xs={{ span: 6, offset: 3 }}
+            xs={{ span: 10, offset: 1 }}
+            sm={{ span: 6, offset: 3 }}
             style={{ display: "flex", justifyContent: "center" }}
           >
             <Figure>
@@ -31,7 +32,7 @@ export default function ItemPage() {
         </Row>
 
         <Row>
-          <Col xs={{ span: 6, offset: 3 }}>
+          <Col xs={{ span: 10, offset: 1 }} sm={{ span: 6, offset: 3 }}>
             <p style={{ textAlign: "justify", marginTop: "20px" }}>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt
               praesentium soluta fuga illo dolorum excepturi corporis esse
@@ -48,7 +49,7 @@ export default function ItemPage() {
           </Col>
         </Row>
         <Row>
-          <Col xs={{ span: 6, offset: 3 }}>
+          <Col xs={{ span: 10, offset: 1 }} sm={{ span: 6, offset: 3 }}>
             <h6>Tags:</h6>
           </Col>
         </Row>

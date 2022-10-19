@@ -71,7 +71,12 @@ export default function CollectionPage() {
       </Row>
       <Container>
         <Row className="mt-5 mb-5">
-          <Col md={{ span: 4, offset: 4 }} lg={{ span: 2, offset: 5 }}>
+          <Col
+            style={{ display: "flex", justifyContent: "center" }}
+            xs={{ span: 6, offset: 3 }}
+            md={{ span: 4, offset: 4 }}
+            lg={{ span: 2, offset: 5 }}
+          >
             <div className="d-grid gap-2 ">
               <Link to="/additem">
                 <Button type="submit" size="lg">

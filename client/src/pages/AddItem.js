@@ -21,7 +21,8 @@ export default function AddItem() {
         <Form style={{ marginTop: "50px" }}>
           <Row className="mb-3">
             <Col
-              xs={{ span: 8, offset: 2 }}
+              xs={{ span: 12, offset: 0 }}
+              sm={{ span: 8, offset: 2 }}
               lg={{ span: 6, offset: 3 }}
               xl={{ span: 4, offset: 4 }}
             >
@@ -40,7 +41,8 @@ export default function AddItem() {
           </Row>
           <Row className="mb-3">
             <Col
-              xs={{ span: 8, offset: 2 }}
+              xs={{ span: 12, offset: 0 }}
+              sm={{ span: 8, offset: 2 }}
               lg={{ span: 6, offset: 3 }}
               xl={{ span: 4, offset: 4 }}
             >
@@ -60,7 +62,8 @@ export default function AddItem() {
           </Row>
           <Row>
             <Col
-              xs={{ span: 8, offset: 2 }}
+              xs={{ span: 12, offset: 0 }}
+              sm={{ span: 8, offset: 2 }}
               lg={{ span: 6, offset: 3 }}
               xl={{ span: 4, offset: 4 }}
             >
@@ -79,16 +82,18 @@ export default function AddItem() {
           </Row>
           <Row className="mt-3">
             <Col
-              xs={{ span: 8, offset: 2 }}
+              xs={{ span: 12, offset: 0 }}
+              sm={{ span: 8, offset: 2 }}
               lg={{ span: 6, offset: 3 }}
               xl={{ span: 4, offset: 4 }}
             >
               <ItemImage />
             </Col>
           </Row>
-          <Row className="mt-5">
+          <Row className="mt-5 mb-2">
             <Col
-              xs={{ span: 8, offset: 2 }}
+              xs={{ span: 12, offset: 0 }}
+              sm={{ span: 8, offset: 2 }}
               lg={{ span: 6, offset: 3 }}
               xl={{ span: 2, offset: 5 }}
             >

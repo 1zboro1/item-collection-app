@@ -22,7 +22,8 @@ export default function AddCollection() {
         <Form style={{ marginTop: "50px" }}>
           <Row className="mb-3">
             <Col
-              xs={{ span: 8, offset: 2 }}
+              xs={{ span: 12, offset: 0 }}
+              sm={{ span: 8, offset: 2 }}
               lg={{ span: 3, offset: 3 }}
               xl={{ span: 2, offset: 4 }}
             >
@@ -39,7 +40,8 @@ export default function AddCollection() {
               </Form.Group>
             </Col>
             <Col
-              xs={{ span: 8, offset: 2 }}
+              xs={{ span: 12, offset: 0 }}
+              sm={{ span: 8, offset: 2 }}
               lg={{ span: 3, offset: 0 }}
               xl={{ span: 2, offset: 0 }}
             >
@@ -58,7 +60,8 @@ export default function AddCollection() {
           </Row>
           <Row className="mb-3">
             <Col
-              xs={{ span: 8, offset: 2 }}
+              xs={{ span: 12, offset: 0 }}
+              sm={{ span: 8, offset: 2 }}
               lg={{ span: 6, offset: 3 }}
               xl={{ span: 4, offset: 4 }}
             >
@@ -78,7 +81,8 @@ export default function AddCollection() {
           </Row>
           <Row>
             <Col
-              xs={{ span: 8, offset: 2 }}
+              xs={{ span: 12, offset: 0 }}
+              sm={{ span: 8, offset: 2 }}
               lg={{ span: 6, offset: 3 }}
               xl={{ span: 4, offset: 4 }}
             >
@@ -97,16 +101,18 @@ export default function AddCollection() {
           </Row>
           <Row className="mt-3">
             <Col
-              xs={{ span: 8, offset: 2 }}
+              xs={{ span: 12, offset: 0 }}
+              sm={{ span: 8, offset: 2 }}
               lg={{ span: 6, offset: 3 }}
               xl={{ span: 4, offset: 4 }}
             >
               <CollectionImage />
             </Col>
           </Row>
-          <Row className="mt-5">
+          <Row className="mt-5 mb-2">
             <Col
-              xs={{ span: 8, offset: 2 }}
+              xs={{ span: 12, offset: 0 }}
+              sm={{ span: 8, offset: 2 }}
               lg={{ span: 6, offset: 3 }}
               xl={{ span: 2, offset: 5 }}
             >

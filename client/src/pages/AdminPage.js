@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import Header from "../components/Header";
-import { Row, Col, Table } from "react-bootstrap";
+import { Row, Col, Table, Container } from "react-bootstrap";
 import Manage from "../components/Manage";
 
 export default function AdminPage() {
@@ -41,37 +41,41 @@ export default function AdminPage() {
       >
         Administration
       </h1>
-      <Row className="mt-5">
-        <Col xs={{ span: 10, offset: 1 }}>
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th style={{ width: "5%", textAlign: "center" }}>#</th>
-                <th style={{ width: "20%", textAlign: "center" }}>Username</th>
-                <th style={{ width: "25%", textAlign: "center" }}>E-mail</th>
-                <th style={{ textAlign: "center" }}>Manage</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Adams</td>
-                <td>Otto</td>
-                <td className="text-center">
-                  <Manage
-                    overview={clickOverview}
-                    block={clickManageBlock}
-                    delete={clickDelete}
-                    permission={clickManagePermission}
-                    admin={admin}
-                    blocked={blocked}
-                  />
-                </td>
-              </tr>
-            </tbody>
-          </Table>
-        </Col>
-      </Row>
+      <Container>
+        <Row className="mt-5">
+          <Col xs={{ span: 12}}>
+            <Table striped bordered hover>
+              <thead>
+                <tr>
+                  <th style={{ width: "5%", textAlign: "center" }}>#</th>
+                  <th style={{ width: "20%", textAlign: "center" }}>
+                    Username
+                  </th>
+                  <th style={{ width: "25%", textAlign: "center" }}>E-mail</th>
+                  <th style={{ textAlign: "center" }}>Manage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Adams</td>
+                  <td>Otto</td>
+                  <td className="text-center">
+                    <Manage
+                      overview={clickOverview}
+                      block={clickManageBlock}
+                      delete={clickDelete}
+                      permission={clickManagePermission}
+                      admin={admin}
+                      blocked={blocked}
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </Table>
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 }
