@@ -13,7 +13,7 @@ export default function Home() {
     setTheme(newTheme);
   };
   const pageTheme =
-    theme === "light" ? "bg-light text-dark" : "bg-dark text-white";
+    theme === "light" ? "bg-light text-dark pb-4" : "bg-dark text-white pb-4";
 
   return (
     <div className={pageTheme} style={{ minHeight: "100vh" }}>

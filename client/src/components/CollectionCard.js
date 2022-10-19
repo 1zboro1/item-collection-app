@@ -4,8 +4,8 @@ import { Card } from "react-bootstrap";
 export default function CollectionCard(props) {
   const colors =
     props.theme === "light"
-      ? "bg-light text-dark"
-      : "bg-secondary bg-gradient text-white";
+      ? "bg-light text-dark mb-2"
+      : "bg-secondary bg-gradient text-white mb-2";
   return (
     <React.Fragment>
       <Card style={{ width: "20rem" }} className={colors}>

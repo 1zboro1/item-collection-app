@@ -1,17 +1,25 @@
 import React from "react";
 import { useState } from "react";
+import useLocalStorage from "use-local-storage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Form, Container, Row, Col } from "react-bootstrap";
 import Header from "../components/Header";
 import ItemImage from "../components/ItemImage";
 
 export default function AddItem() {
+  const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");
+  const switchTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+  };
+  const pageTheme =
+    theme === "light" ? "bg-light text-dark" : "bg-dark text-white";
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [tags, setTags] = useState("");
   return (
-    <>
-      <Header />
+    <div className={pageTheme} style={{ minHeight: "100vh" }}>
+      <Header theme={theme} click={switchTheme} />
       <Container fluid>
         <h1
           style={{ fontSize: "3rem", textAlign: "center", marginTop: "3rem" }}
@@ -33,7 +41,7 @@ export default function AddItem() {
                   onChange={(e) => {
                     setName(e.target.value);
                   }}
-                  className="square border border-dark border-2"
+                  className="square border border-primary border-4"
                   placeholder="Name..."
                 />
               </Form.Group>
@@ -54,7 +62,7 @@ export default function AddItem() {
                   onChange={(e) => {
                     setDescription(e.target.value);
                   }}
-                  className="square border border-dark border-2"
+                  className="square border border-primary border-4"
                   placeholder="Description..."
                 />
               </Form.Group>
@@ -74,7 +82,7 @@ export default function AddItem() {
                   onChange={(e) => {
                     setTags(e.target.value);
                   }}
-                  className="square border border-dark border-2"
+                  className="square border border-primary border-4"
                   placeholder="Tags..."
                 />
               </Form.Group>
@@ -87,17 +95,17 @@ export default function AddItem() {
               lg={{ span: 6, offset: 3 }}
               xl={{ span: 4, offset: 4 }}
             >
-              <ItemImage />
+              <ItemImage theme={theme} />
             </Col>
           </Row>
-          <Row className="mt-5 mb-2">
+          <Row className="mt-5">
             <Col
               xs={{ span: 12, offset: 0 }}
               sm={{ span: 8, offset: 2 }}
               lg={{ span: 6, offset: 3 }}
               xl={{ span: 2, offset: 5 }}
             >
-              <div className="d-grid gap-2 ">
+              <div className="d-grid gap-2 mb-2">
                 <Button type="submit">
                   <strong>ADD NOW</strong>
                 </Button>
@@ -106,6 +114,6 @@ export default function AddItem() {
           </Row>
         </Form>
       </Container>
-    </>
+    </div>
   );
 }

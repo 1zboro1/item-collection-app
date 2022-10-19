@@ -3,12 +3,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Button, Figure, Row, Col } from "react-bootstrap";
 import imgPlaceholder from "../imgs/placeholder-image.png";
 
-export default function ItemImage() {
+export default function ItemImage(props) {
+  const componentTheme =
+    props.theme === "light"
+      ? "square border border-primary border-4 bg-light text-dark"
+      : "square border border-primary border-4 bg-white text-dark";
   return (
-    <Container
-      className="square border border-dark border-2"
-      style={{ borderRadius: "5px" }}
-    >
+    <Container className={componentTheme} style={{ borderRadius: "5px" }}>
       <Row className="my-3 mx-auto">
         <Col
           // xs={{ span: 12 }}
@@ -18,7 +19,7 @@ export default function ItemImage() {
           <Figure.Image
             src={imgPlaceholder}
             width="75%"
-            className="square border border-dark border-1 mx-auto"
+            className="square border border-dark border-2 mx-auto"
           />
         </Col>
         <Col

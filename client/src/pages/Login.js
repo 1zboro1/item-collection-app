@@ -44,7 +44,7 @@ export default function Login() {
                     onChange={(e) => {
                       setEmail(e.target.value);
                     }}
-                    className="square border border-primary border-2"
+                    className="square border border-primary border-4"
                   />
                 </Form.Group>
               </Col>
@@ -65,7 +65,7 @@ export default function Login() {
                     onChange={(e) => {
                       setPassword(e.target.value);
                     }}
-                    className="square border border-primary border-2"
+                    className="square border border-primary border-4"
                   />
                 </Form.Group>
               </Col>

@@ -44,7 +44,7 @@ export default function Register() {
                     onChange={(e) => {
                       setUsername(e.target.value);
                     }}
-                    className="square border border-primary border-2"
+                    className="square border border-primary border-4"
                   />
                 </Form.Group>
               </Col>
@@ -65,7 +65,7 @@ export default function Register() {
                     onChange={(e) => {
                       setEmail(e.target.value);
                     }}
-                    className="square border border-primary border-2"
+                    className="square border border-primary border-4"
                   />
                 </Form.Group>
               </Col>
@@ -86,7 +86,7 @@ export default function Register() {
                     onChange={(e) => {
                       setPassword(e.target.value);
                     }}
-                    className="square border border-primary border-2"
+                    className="square border border-primary border-4"
                   />
                 </Form.Group>
               </Col>
