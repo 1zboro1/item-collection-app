@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
   Form,
@@ -7,17 +8,23 @@ import {
   Col,
   Dropdown,
   DropdownButton,
+  Button,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-export default function Header(props) {
+const lngs = {
+  en: { nativeName: "English" },
+  pl: { nativeName: "Polish" },
+};
 
+export default function Header(props) {
+  const { t, i18n } = useTranslation();
   return (
     <Container className="bg-primary py-3" fluid>
       <Row className="mx-4">
         <Col sm={{ span: 2 }} lg={{ span: 2 }}>
           <Link to="/">
-            <h1 className="text-white">Collections</h1>
+            <h1 className="text-white">{t("collections")}</h1>
           </Link>
         </Col>
         <Col
@@ -28,7 +35,7 @@ export default function Header(props) {
           <Form.Control
             size="lg"
             type="text"
-            placeholder="Search..."
+            placeholder={t("search")}
             style={{ borderRadius: "30px 30px 30px 30px" }}
           />
         </Col>
@@ -59,6 +66,7 @@ export default function Header(props) {
             <Dropdown.Item as={Link} to="/itempage">
               Item Page
             </Dropdown.Item>
+            <Dropdown.Divider />
             <Dropdown.Item onClick={props.click}>
               Dark mode{" "}
               {props.theme === "light" ? (
@@ -66,6 +74,19 @@ export default function Header(props) {
               ) : (
                 <i className="fa-solid fa-toggle-on"></i>
               )}
+            </Dropdown.Item>
+            <Dropdown.Item>
+              {Object.keys(lngs).map((lng) => (
+                <Button
+                  variant="secondary"
+                  type="submit"
+                  key={lng}
+                  onClick={() => i18n.changeLanguage(lng)}
+                  disabled={i18n.resolvedLanguage === lng}
+                >
+                  {lngs[lng].nativeName}
+                </Button>
+              ))}
             </Dropdown.Item>
           </DropdownButton>
         </Col>

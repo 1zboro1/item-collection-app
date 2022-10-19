@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import Header from "../components/Header";
 import useLocalStorage from "use-local-storage";
 import { Col, Row } from "react-bootstrap";
@@ -7,6 +8,7 @@ import CollectionIndex from "../components/CollectionIndex";
 import cardImage from "../imgs/strategia_grande.jpg";
 
 export default function Home() {
+  const { t } = useTranslation();
   const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");
   const switchTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
@@ -22,7 +24,7 @@ export default function Home() {
         className="text-center"
         style={{ textAlign: "center", marginTop: "1rem" }}
       >
-        Recent items
+        {t("recentItems")}
       </h2>
       <Row className="mx-auto mt-4">
         <Col
@@ -60,7 +62,7 @@ export default function Home() {
         className="text-center"
         style={{ textAlign: "center", marginTop: "1rem" }}
       >
-        Biggest collections
+        {t("biggestColl")}
       </h2>
       <Row className="mx-auto mt-4">
         <Col
