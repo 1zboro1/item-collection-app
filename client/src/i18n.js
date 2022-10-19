@@ -57,6 +57,7 @@ i18next
           addNowButton: "ADD NOW",
           createCollHeader: "Create new collection",
           addItemHeader: "Add new item",
+          PNF: "Ups... page not found",
         },
       },
       pl: {
@@ -108,6 +109,7 @@ i18next
           addNowButton: "DODAJ TERAZ",
           createCollHeader: "Stwórz nową kolekcję",
           addItemHeader: "Dodaj nowy przedmiot",
+          PNF: "Ups... nie znaleziono strony",
         },
       },
     },
