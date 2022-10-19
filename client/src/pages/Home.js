@@ -16,7 +16,7 @@ export default function Home() {
     theme === "light" ? "bg-light text-dark" : "bg-dark text-white";
 
   return (
-    <div className={pageTheme} style={{ height: "100vh" }}>
+    <div className={pageTheme} style={{ minHeight: "100vh" }}>
       <Header theme={theme} click={switchTheme} />
       <h2
         className="text-center"
