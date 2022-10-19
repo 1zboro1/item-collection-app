@@ -17,7 +17,7 @@ export default function PageNotFound() {
     <div className={pageTheme} style={{ minHeight: "100vh" }}>
       <Header theme={theme} click={switchTheme} />
       <h1 className="text-center" style={{ marginTop: "150px" }}>
-        {t("PNF")}
+        {t("pageNotFound")}
       </h1>
     </div>
   );
