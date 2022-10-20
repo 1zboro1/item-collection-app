@@ -83,7 +83,7 @@ export default function CollectionPage() {
         <Row className="mt-5">
           <Col
             style={{ display: "flex", justifyContent: "center" }}
-            xs={{ span: 6, offset: 3 }}
+            xs={{ span: 8, offset: 2 }}
             md={{ span: 4, offset: 4 }}
             lg={{ span: 4, offset: 4 }}
           >

@@ -6,6 +6,7 @@ import AdminPage from "./pages/AdminPage";
 import CollectionPage from "./pages/CollectionPage";
 import Home from "./pages/Home";
 import ItemPage from "./pages/ItemPage";
+import EE from "./pages/EE";
 import Login from "./pages/Login";
 import MyCollections from "./pages/MyCollections";
 import Register from "./pages/Register";
@@ -24,6 +25,7 @@ function App() {
           <Route path="/collectionpage" element={<CollectionPage />} />
           <Route path="/additem" element={<AddItem />} />
           <Route path="/itempage" element={<ItemPage />} />
+          <Route path="/egg" element={<EE />} />
           <Route path="/" element={<Home />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>

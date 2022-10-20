@@ -13,8 +13,8 @@ import {
 import { Link } from "react-router-dom";
 
 const lngs = {
-  en: { nativeName: "English" },
-  pl: { nativeName: "Polski" },
+  en: { nativeName: "ENGLISH" },
+  pl: { nativeName: "POLSKI" },
 };
 
 export default function Header(props) {
@@ -68,7 +68,7 @@ export default function Header(props) {
             </Dropdown.Item>
             <Dropdown.Divider />
             <Dropdown.Item onClick={props.click}>
-              Dark mode{" "}
+              DARK MODE{" "}
               {props.theme === "light" ? (
                 <i className="fa-solid fa-toggle-off"></i>
               ) : (

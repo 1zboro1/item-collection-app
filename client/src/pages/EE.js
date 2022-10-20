@@ -3,9 +3,8 @@ import Header from "../components/Header";
 import useLocalStorage from "use-local-storage";
 import { useTranslation } from "react-i18next";
 import { Figure, Row, Col, Container } from "react-bootstrap";
-import cardImage from "../imgs/strategia_grande.jpg";
 
-export default function ItemPage() {
+export default function EE() {
   const { t } = useTranslation();
   const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");
   const switchTheme = () => {
@@ -26,7 +25,7 @@ export default function ItemPage() {
           marginBottom: "1.5rem",
         }}
       >
-        Item name
+        Julitka
       </h1>
       <Container>
         <Row>
@@ -36,7 +35,7 @@ export default function ItemPage() {
             style={{ display: "flex", justifyContent: "center" }}
           >
             <Figure>
-              <Figure.Image src={cardImage} style={{ maxHeight: "400px" }} />
+              <Figure.Image src="https://scontent-waw1-1.xx.fbcdn.net/v/t1.15752-9/311926933_1483319565464204_5655898759058583758_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=ae9488&_nc_ohc=r6EsO2yQCwEAX_Qw0YC&_nc_ht=scontent-waw1-1.xx&oh=03_AdSJ8GdBMlr2cRxoRIKVf6L6ZtVwer7Ul87djebm4SzeSA&oe=63753057" style={{ maxHeight: "400px" }} />
             </Figure>
           </Col>
         </Row>
@@ -44,20 +43,13 @@ export default function ItemPage() {
         <Row>
           <Col xs={{ span: 10, offset: 1 }} sm={{ span: 6, offset: 3 }}>
             <p style={{ textAlign: "justify", marginTop: "20px" }}>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias
-              minus consequuntur qui porro quam error dolorem nesciunt
-              voluptatibus blanditiis commodi magnam consectetur distinctio sint
-              cumque voluptatem, voluptate, architecto officia sequi. Excepturi,
-              voluptates vel perferendis explicabo labore, assumenda quisquam
-              molestias doloremque tenetur quia illum magni? Veritatis delectus
-              voluptatum numquam? Minus maiores unde impedit veritatis nostrum
-              praesentium labore totam eos culpa quaerat!
+              Mały nygus, co za dużo gada. Po prostu nie przestaje.
             </p>
           </Col>
         </Row>
         <Row>
           <Col xs={{ span: 10, offset: 1 }} sm={{ span: 6, offset: 3 }}>
-            <h6 className="mb-3">{t("tags")}</h6>
+            <h6 className="mb-3">{t("tags")}wredne</h6>
           </Col>
         </Row>
       </Container>
