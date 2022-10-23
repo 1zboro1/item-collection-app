@@ -58,6 +58,8 @@ i18next
           createCollHeader: "Create new collection",
           addItemHeader: "Add new item",
           pageNotFound: "Ups... page not found",
+          image: "Image",
+          edit: "Edit",
         },
       },
       pl: {
@@ -110,6 +112,8 @@ i18next
           createCollHeader: "Stwórz nową kolekcję",
           addItemHeader: "Dodaj nowy przedmiot",
           pageNotFound: "Ups... nie znaleziono strony",
+          image: "Zdjęcie",
+          edit: "Edytuj",
         },
       },
     },

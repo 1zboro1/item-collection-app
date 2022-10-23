@@ -3,8 +3,8 @@ import Header from "../components/Header";
 import { useTranslation } from "react-i18next";
 import useLocalStorage from "use-local-storage";
 import { Link } from "react-router-dom";
-import { Container, Row, Col, Button } from "react-bootstrap";
-import ItemCard from "../components/ItemCard";
+import { Container, Row, Col, Button, Table } from "react-bootstrap";
+import ItemManage from "../components/ItemManage";
 import cardImage from "../imgs/strategia_grande.jpg";
 
 export default function CollectionPage() {
@@ -16,6 +16,16 @@ export default function CollectionPage() {
   };
   const pageTheme =
     theme === "light" ? "bg-light text-dark" : "bg-dark text-white";
+  const tableTextColor =
+    theme === "light" ? "light text-center" : "dark text-center";
+
+  const clickEdit = () => {
+    console.log("edit");
+  };
+  const clickDelete = () => {
+    console.log("delete");
+  };
+
   return (
     <div className={pageTheme} style={{ minHeight: "100vh" }}>
       <Header theme={theme} click={switchTheme} />
@@ -41,44 +51,35 @@ export default function CollectionPage() {
           mollitia minus illum cum iure rerum tempore officia. Sunt, possimus?
         </p>
       </Container>
-      <Row className="mx-auto mt-4">
-        <Col
-          lg={{ span: 4, offset: 0 }}
-          style={{ display: "flex", justifyContent: "center" }}
-        >
-          <ItemCard image={cardImage} theme={theme} />
-        </Col>
-        <Col
-          lg={{ span: 4, offset: 0 }}
-          style={{ display: "flex", justifyContent: "center" }}
-        >
-          <ItemCard image={cardImage} theme={theme} />
-        </Col>
-        <Col
-          lg={{ span: 4, offset: 0 }}
-          style={{ display: "flex", justifyContent: "center" }}
-        >
-          <ItemCard image={cardImage} theme={theme} />
-        </Col>
-        <Col
-          lg={{ span: 4, offset: 0 }}
-          style={{ display: "flex", justifyContent: "center" }}
-        >
-          <ItemCard image={cardImage} theme={theme} />
-        </Col>
-        <Col
-          lg={{ span: 4, offset: 0 }}
-          style={{ display: "flex", justifyContent: "center" }}
-        >
-          <ItemCard image={cardImage} theme={theme} />
-        </Col>
-        <Col
-          lg={{ span: 4, offset: 0 }}
-          style={{ display: "flex", justifyContent: "center" }}
-        >
-          <ItemCard image={cardImage} theme={theme} />
-        </Col>
-      </Row>
+
+      <Table
+        striped
+        bordered
+        hover
+        variant={tableTextColor}
+        style={{ width: "98%", margin: "2rem auto" }}
+      >
+        <thead>
+          <tr>
+            <th style={{ width: "20%", textAlign: "center" }}>{t("image")}</th>
+            <th style={{ width: "50%", textAlign: "center" }}>
+              {t("itemIndexTitle")}
+            </th>
+            <th style={{ textAlign: "center" }}>{t("tableManage")}</th>
+          </tr>
+        </thead>
+        <tbody className={tableTextColor}>
+          <tr>
+            <td className="align-middle">
+              <img src={cardImage} alt="item" style={{ maxHeight: "100px" }} />
+            </td>
+            <td className="align-middle">Test item</td>
+            <td className="text-center align-middle">
+              <ItemManage edit={clickEdit} delete={clickDelete} />
+            </td>
+          </tr>
+        </tbody>
+      </Table>
       <Container>
         <Row className="mt-5">
           <Col

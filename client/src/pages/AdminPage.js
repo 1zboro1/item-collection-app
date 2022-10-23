@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import useLocalStorage from "use-local-storage";
 import Header from "../components/Header";
 import { Row, Col, Table, Container } from "react-bootstrap";
-import Manage from "../components/Manage";
+import AdminPageManage from "../components/AdminPageManage";
 
 export default function AdminPage() {
   const { t } = useTranslation();
@@ -15,7 +15,8 @@ export default function AdminPage() {
   };
   const pageTheme =
     theme === "light" ? "bg-light text-dark" : "bg-dark text-white";
-  const tableTextColor = theme === "light" ? "light" : "dark";
+  const tableTextColor =
+    theme === "light" ? "light text-center" : "dark text-center";
   let [blocked, setBlocked] = useState(false);
   let [admin, setAdmin] = useState(false);
 
@@ -52,41 +53,40 @@ export default function AdminPage() {
       >
         {t("administrationHeader")}
       </h1>
-      <Container>
-        <Row className="mt-5">
-          <Col xs={{ span: 12 }}>
-            <Table striped bordered hover variant={tableTextColor}>
-              <thead>
-                <tr>
-                  <th style={{ width: "5%", textAlign: "center" }}>#</th>
-                  <th style={{ width: "20%", textAlign: "center" }}>
-                    {t("username")}
-                  </th>
-                  <th style={{ width: "25%", textAlign: "center" }}>E-mail</th>
-                  <th style={{ textAlign: "center" }}>{t("tableManage")}</th>
-                </tr>
-              </thead>
-              <tbody className={tableTextColor}>
-                <tr>
-                  <td>1</td>
-                  <td>Adams</td>
-                  <td>Otto</td>
-                  <td className="text-center">
-                    <Manage
-                      overview={clickOverview}
-                      block={clickManageBlock}
-                      delete={clickDelete}
-                      permission={clickManagePermission}
-                      admin={admin}
-                      blocked={blocked}
-                    />
-                  </td>
-                </tr>
-              </tbody>
-            </Table>
-          </Col>
-        </Row>
-      </Container>
+
+      <Table
+        striped
+        bordered
+        hover
+        variant={tableTextColor}
+        style={{ width: "98%", margin: "2rem auto" }}
+      >
+        <thead>
+          <tr>
+            <th style={{ width: "25%", textAlign: "center" }}>
+              {t("username")}
+            </th>
+            <th style={{ width: "35%", textAlign: "center" }}>E-mail</th>
+            <th style={{ textAlign: "center" }}>{t("tableManage")}</th>
+          </tr>
+        </thead>
+        <tbody className={tableTextColor}>
+          <tr>
+            <td className="align-middle">Adams</td>
+            <td className="align-middle">Otto</td>
+            <td className="text-center align-middle">
+              <AdminPageManage
+                overview={clickOverview}
+                block={clickManageBlock}
+                delete={clickDelete}
+                permission={clickManagePermission}
+                admin={admin}
+                blocked={blocked}
+              />
+            </td>
+          </tr>
+        </tbody>
+      </Table>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
+import trash from "../imgs/trash-solid.svg";
 
 export default function CollectionCard(props) {
   const { t } = useTranslation();
@@ -24,6 +25,11 @@ export default function CollectionCard(props) {
           <Card.Title className="text-center">Collection name</Card.Title>
           <Card.Text>{t("colIndexType")}</Card.Text>
         </Card.Body>
+        <img
+          src={trash}
+          alt="trash icon"
+          style={{ maxHeight: "40px", marginBottom: "5px" }}
+        />
       </Card>
     </React.Fragment>
   );
