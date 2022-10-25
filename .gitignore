@@ -10,6 +10,7 @@ client/ .pnp.js
 client/coverage
 
 # production
+.env
 
 
 # misc
