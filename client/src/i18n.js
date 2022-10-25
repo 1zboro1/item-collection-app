@@ -60,6 +60,7 @@ i18next
           pageNotFound: "Ups... page not found",
           image: "Image",
           edit: "Edit",
+          logoutButton: "LOGOUT",
         },
       },
       pl: {
@@ -114,6 +115,7 @@ i18next
           pageNotFound: "Ups... nie znaleziono strony",
           image: "Zdjęcie",
           edit: "Edytuj",
+          logoutButton: "WYLOGUJ SIĘ",
         },
       },
     },

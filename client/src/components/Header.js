@@ -18,6 +18,7 @@ const lngs = {
 };
 
 export default function Header(props) {
+  const userToken = localStorage.getItem("appToken");
   const { t, i18n } = useTranslation();
   return (
     <Container className="bg-primary py-3" fluid>
@@ -48,23 +49,31 @@ export default function Header(props) {
             <Dropdown.Item as={Link} to="/">
               {t("home")}
             </Dropdown.Item>
-            <Dropdown.Item as={Link} to="/login">
-            {t("login")}
-            </Dropdown.Item>
+            {!userToken && (
+              <Dropdown.Item as={Link} to="/login">
+                {t("login")}
+              </Dropdown.Item>
+            )}
             <Dropdown.Item as={Link} to="/register">
-            {t("register")}
+              {t("register")}
             </Dropdown.Item>
-            <Dropdown.Item as={Link} to="/adminpage">
-            {t("adminPage")}
-            </Dropdown.Item>
-            <Dropdown.Item as={Link} to="/mycollections">
-            {t("myColl")}
-            </Dropdown.Item>
-            <Dropdown.Item as={Link} to="/collectionpage">
-            {t("collPage")}
-            </Dropdown.Item>
+            {!userToken && (
+              <Dropdown.Item as={Link} to="/adminpage">
+                {t("adminPage")}
+              </Dropdown.Item>
+            )}
+            {userToken && (
+              <Dropdown.Item as={Link} to="/mycollections">
+                {t("myColl")}
+              </Dropdown.Item>
+            )}
+            {userToken && (
+              <Dropdown.Item as={Link} to="/collectionpage">
+                {t("collPage")}
+              </Dropdown.Item>
+            )}
             <Dropdown.Item as={Link} to="/itempage">
-            {t("itemPage")}
+              {t("itemPage")}
             </Dropdown.Item>
             <Dropdown.Divider />
             <Dropdown.Item onClick={props.click}>
@@ -89,6 +98,14 @@ export default function Header(props) {
                 </Button>
               ))}
             </Dropdown.Item>
+            {userToken && (
+              <>
+                <Dropdown.Divider />
+                <Dropdown.Item className="text-center">
+                  <Button variant="warning">{t("logoutButton")}</Button>
+                </Dropdown.Item>
+              </>
+            )}
           </DropdownButton>
         </Col>
       </Row>

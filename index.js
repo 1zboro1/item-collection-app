@@ -5,13 +5,16 @@ const cors = require("cors");
 const connection = require("./db");
 const PORT = process.env.PORT || 3005;
 const path = require("path");
+const loginRoutes = require("./routes/login");
+const registerRoutes = require("./routes/register");
 
 connection();
 
 app.use(express.json());
 app.use(cors());
 
-// app.use(express.static(path.join(__dirname + "/client", "build")));
+app.use("/api/login", loginRoutes);
+app.use("/api/register", registerRoutes);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname + "/client/build")));
