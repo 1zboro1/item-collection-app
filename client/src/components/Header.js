@@ -18,6 +18,10 @@ const lngs = {
 };
 
 export default function Header(props) {
+  const handleLogout = () => {
+    localStorage.removeItem("appToken");
+    window.location.reload();
+  };
   const userToken = localStorage.getItem("appToken");
   const { t, i18n } = useTranslation();
   return (
@@ -57,7 +61,7 @@ export default function Header(props) {
             <Dropdown.Item as={Link} to="/register">
               {t("register")}
             </Dropdown.Item>
-            {!userToken && (
+            {userToken && (
               <Dropdown.Item as={Link} to="/adminpage">
                 {t("adminPage")}
               </Dropdown.Item>
@@ -102,7 +106,9 @@ export default function Header(props) {
               <>
                 <Dropdown.Divider />
                 <Dropdown.Item className="text-center">
-                  <Button variant="warning">{t("logoutButton")}</Button>
+                  <Button variant="warning" onClick={handleLogout}>
+                    {t("logoutButton")}
+                  </Button>
                 </Dropdown.Item>
               </>
             )}

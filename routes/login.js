@@ -8,11 +8,18 @@ router.post("/", async (req, res) => {
       password: req.body.password,
     });
     if (!user) {
+      alert("Invalid email or password");
       return res.status(401).send({ message: "Invalid email or password" });
     }
+    if (user.blocked) {
+      alert("You are blocked!");
+      return res.status(402).send({ message: "User blocked" });
+    }
     const appToken = user.generateAuthToken();
+    console.log("Logged in");
     res.status(200).send({ data: appToken, message: "Logged in" });
   } catch (error) {
+    console.log("Internal server error");
     res.status(500).send({ message: "Internal server error" });
   }
 });

@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import useLocalStorage from "use-local-storage";
@@ -16,9 +17,23 @@ export default function Login() {
   };
   const pageTheme =
     theme === "light" ? "bg-light text-dark" : "bg-dark text-white";
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const loginUser = async (e) => {
+    e.preventDefault();
+    try {
+      // const url = `http://localhost:5000/api/login`;
+      const url = "https://item-collection-app-bz.herokuapp.com/login";
+      const { data: res } = await axios.post(url, {
+        email,
+        password,
+      });
+      localStorage.setItem("appToken", res.data);
+      window.location = "/";
+    } catch (error) {
+      alert("React login failed");
+    }
+  };
   return (
     <>
       <div className={pageTheme} style={{ minHeight: "100vh" }}>
@@ -29,7 +44,7 @@ export default function Login() {
           >
             {t("signInHeader")}
           </h1>
-          <Form style={{ marginTop: "70px" }}>
+          <Form style={{ marginTop: "70px" }} onSubmit={loginUser}>
             <Row className="mb-3">
               <Col
                 xs={{ span: 10, offset: 1 }}
