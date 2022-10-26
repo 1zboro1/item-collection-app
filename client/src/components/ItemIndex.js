@@ -13,7 +13,7 @@ export default function ItemCard(props) {
       <Card style={{ width: "14rem" }} className={colors}>
         <Card.Img
           variant="top"
-          src={props.image}
+          src="https://m.media-amazon.com/images/I/51MR3422P6L.jpg"
           style={{
             maxHeight: "10rem",
             objectFit: "contain",

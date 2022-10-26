@@ -5,7 +5,6 @@ import useLocalStorage from "use-local-storage";
 import Header from "../components/Header";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import CollectionCard from "../components/CollectionCard";
-import cardImage from "../imgs/strategia_grande.jpg";
 
 export default function MyCollections() {
   const { t } = useTranslation();
@@ -30,37 +29,37 @@ export default function MyCollections() {
           lg={{ span: 4, offset: 0 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <CollectionCard image={cardImage} theme={theme} />
+          <CollectionCard theme={theme} />
         </Col>
         <Col
           lg={{ span: 4, offset: 0 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <CollectionCard image={cardImage} theme={theme} />
+          <CollectionCard  theme={theme} />
         </Col>
         <Col
           lg={{ span: 4, offset: 0 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <CollectionCard image={cardImage} theme={theme} />
+          <CollectionCard  theme={theme} />
         </Col>
         <Col
           lg={{ span: 4, offset: 0 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <CollectionCard image={cardImage} theme={theme} />
+          <CollectionCard  theme={theme} />
         </Col>
         <Col
           lg={{ span: 4, offset: 0 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <CollectionCard image={cardImage} theme={theme} />
+          <CollectionCard  theme={theme} />
         </Col>
         <Col
           lg={{ span: 4, offset: 0 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <CollectionCard image={cardImage} theme={theme} />
+          <CollectionCard  theme={theme} />
         </Col>
       </Row>
       <Container>

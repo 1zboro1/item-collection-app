@@ -5,7 +5,6 @@ import useLocalStorage from "use-local-storage";
 import { Link } from "react-router-dom";
 import { Container, Row, Col, Button, Table } from "react-bootstrap";
 import ItemManage from "../components/ItemManage";
-import cardImage from "../imgs/strategia_grande.jpg";
 
 export default function CollectionPage() {
   const { t } = useTranslation();
@@ -71,7 +70,11 @@ export default function CollectionPage() {
         <tbody className={tableTextColor}>
           <tr>
             <td className="align-middle">
-              <img src={cardImage} alt="item" style={{ maxHeight: "100px" }} />
+              <img
+                src="https://m.media-amazon.com/images/I/51MR3422P6L.jpg"
+                alt="item"
+                style={{ maxHeight: "100px" }}
+              />
             </td>
             <td className="align-middle">Test item</td>
             <td className="text-center align-middle">

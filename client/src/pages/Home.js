@@ -5,7 +5,6 @@ import useLocalStorage from "use-local-storage";
 import { Col, Row } from "react-bootstrap";
 import ItemIndex from "../components/ItemIndex";
 import CollectionIndex from "../components/CollectionIndex";
-import cardImage from "../imgs/strategia_grande.jpg";
 
 export default function Home() {
   const { t } = useTranslation();
@@ -31,31 +30,31 @@ export default function Home() {
           xxl={{ span: 2, offset: 1 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <ItemIndex image={cardImage} theme={theme} />
+          <ItemIndex theme={theme} />
         </Col>
         <Col
           xxl={{ span: 2, offset: 0 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <ItemIndex image={cardImage} theme={theme} />
+          <ItemIndex theme={theme} />
         </Col>
         <Col
           xxl={{ span: 2, offset: 0 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <ItemIndex image={cardImage} theme={theme} />
+          <ItemIndex theme={theme} />
         </Col>
         <Col
           xxl={{ span: 2, offset: 0 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <ItemIndex image={cardImage} theme={theme} />
+          <ItemIndex theme={theme} />
         </Col>
         <Col
           xxl={{ span: 2, offset: 0 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <ItemIndex image={cardImage} theme={theme} />
+          <ItemIndex theme={theme} />
         </Col>
       </Row>
       <h2
@@ -69,31 +68,31 @@ export default function Home() {
           xxl={{ span: 2, offset: 1 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <CollectionIndex image={cardImage} theme={theme} />
+          <CollectionIndex theme={theme} />
         </Col>
         <Col
           xxl={{ span: 2, offset: 0 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <CollectionIndex image={cardImage} theme={theme} />
+          <CollectionIndex theme={theme} />
         </Col>
         <Col
           xxl={{ span: 2, offset: 0 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <CollectionIndex image={cardImage} theme={theme} />
+          <CollectionIndex theme={theme} />
         </Col>
         <Col
           xxl={{ span: 2, offset: 0 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <CollectionIndex image={cardImage} theme={theme} />
+          <CollectionIndex theme={theme} />
         </Col>
         <Col
           xxl={{ span: 2, offset: 0 }}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <CollectionIndex image={cardImage} theme={theme} />
+          <CollectionIndex theme={theme} />
         </Col>
       </Row>
     </div>

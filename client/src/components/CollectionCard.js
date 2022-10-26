@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-import trash from "../imgs/trash-solid.svg";
+import trash from "../icons/trash-solid.svg";
 
 export default function CollectionCard(props) {
   const { t } = useTranslation();
@@ -14,7 +14,7 @@ export default function CollectionCard(props) {
       <Card style={{ width: "20rem" }} className={colors}>
         <Card.Img
           variant="top"
-          src={props.image}
+          src="https://m.media-amazon.com/images/I/51MR3422P6L.jpg"
           style={{
             maxHeight: "16rem",
             objectFit: "contain",

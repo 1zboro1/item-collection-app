@@ -3,7 +3,6 @@ import Header from "../components/Header";
 import useLocalStorage from "use-local-storage";
 import { useTranslation } from "react-i18next";
 import { Figure, Row, Col, Container } from "react-bootstrap";
-import cardImage from "../imgs/strategia_grande.jpg";
 
 export default function ItemPage() {
   const { t } = useTranslation();
@@ -36,7 +35,10 @@ export default function ItemPage() {
             style={{ display: "flex", justifyContent: "center" }}
           >
             <Figure>
-              <Figure.Image src={cardImage} style={{ maxHeight: "400px" }} />
+              <Figure.Image
+                src="https://m.media-amazon.com/images/I/51MR3422P6L.jpg"
+                style={{ maxHeight: "400px" }}
+              />
             </Figure>
           </Col>
         </Row>
