@@ -23,7 +23,7 @@ export default function Login() {
     e.preventDefault();
     try {
       // const url = `http://localhost:5000/api/login`;
-      const url = "https://item-collection-app-bz.herokuapp.com/login";
+      const url = "https://item-collection-app-bz.herokuapp.com/api/login";
       const { data: res } = await axios.post(url, {
         email,
         password,
