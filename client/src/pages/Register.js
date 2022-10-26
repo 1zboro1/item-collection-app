@@ -1,8 +1,9 @@
 import React from "react";
+import axios from "axios";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import useLocalStorage from "use-local-storage";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Form, Container, Row, Col } from "react-bootstrap";
 import Header from "../components/Header";
@@ -19,6 +20,29 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
+  const navigate = useNavigate();
+
+  const registerUser = async (e) => {
+    e.preventDefault();
+    try {
+      // const url = `http://localhost:5000/api/register`;
+      const url = "https://item-collection-app-bz.herokuapp.com/api/register";
+      const { data: res } = await axios.post(url, {
+        username,
+        password,
+        email,
+        admin: false,
+        blocked: false,
+        collection: [null],
+      });
+      navigate("/login");
+      console.log(res.message);
+    } catch (error) {
+      console.log("Login failed", error);
+      alert("Problem occured while creating account");
+    }
+  };
+
   return (
     <>
       <div className={pageTheme} style={{ minHeight: "100vh" }}>
@@ -29,7 +53,7 @@ export default function Register() {
           >
             {t("registerHeader")}
           </h1>
-          <Form style={{ marginTop: "70px" }}>
+          <Form style={{ marginTop: "70px" }} onSubmit={registerUser}>
             <Row className="mb-3">
               <Col
                 xs={{ span: 10, offset: 1 }}

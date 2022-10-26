@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import useLocalStorage from "use-local-storage";
 import Header from "../components/Header";
-import { Row, Col, Table, Container } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import AdminPageManage from "../components/AdminPageManage";
 
 export default function AdminPage() {

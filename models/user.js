@@ -28,6 +28,7 @@ const userSchema = new mongoose.Schema({
           ],
           likes: { type: Number },
           item_image: { type: String },
+          upload_date: { type: String },
         },
       ],
     },

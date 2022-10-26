@@ -19,6 +19,7 @@ export default function Login() {
     theme === "light" ? "bg-light text-dark" : "bg-dark text-white";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const loginUser = async (e) => {
     e.preventDefault();
     try {
@@ -31,9 +32,11 @@ export default function Login() {
       localStorage.setItem("appToken", res.data);
       window.location = "/";
     } catch (error) {
-      alert("React login failed");
+      console.log("Login failed", error);
+      alert("There was a problem with a login. Check entered data and if you're not banned")
     }
   };
+  
   return (
     <>
       <div className={pageTheme} style={{ minHeight: "100vh" }}>

@@ -58,9 +58,11 @@ export default function Header(props) {
                 {t("login")}
               </Dropdown.Item>
             )}
-            <Dropdown.Item as={Link} to="/register">
-              {t("register")}
-            </Dropdown.Item>
+            {!userToken && (
+              <Dropdown.Item as={Link} to="/register">
+                {t("register")}
+              </Dropdown.Item>
+            )}
             {userToken && (
               <Dropdown.Item as={Link} to="/adminpage">
                 {t("adminPage")}
