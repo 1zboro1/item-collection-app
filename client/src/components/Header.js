@@ -10,7 +10,7 @@ import {
   DropdownButton,
   Button,
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const lngs = {
   en: { nativeName: "ENGLISH" },
@@ -18,9 +18,11 @@ const lngs = {
 };
 
 export default function Header(props) {
+  const navigate = useNavigate();
+
   const handleLogout = () => {
     localStorage.removeItem("appToken");
-    window.location.reload();
+    navigate("/");
   };
   const userToken = localStorage.getItem("appToken");
   const { t, i18n } = useTranslation();
@@ -78,9 +80,11 @@ export default function Header(props) {
                 {t("collPage")}
               </Dropdown.Item>
             )}
-            <Dropdown.Item as={Link} to="/itempage">
-              {t("itemPage")}
-            </Dropdown.Item>
+            {userToken && (
+              <Dropdown.Item as={Link} to="/itempage">
+                {t("itemPage")}
+              </Dropdown.Item>
+            )}
             <Dropdown.Divider />
             <Dropdown.Item onClick={props.click}>
               DARK MODE{" "}
