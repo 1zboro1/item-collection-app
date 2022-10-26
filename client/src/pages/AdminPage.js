@@ -23,7 +23,8 @@ export default function AdminPage() {
   let [admin, setAdmin] = useState(false);
 
   useEffect(() => {
-    const url = `http://localhost:5000/api/getUsers`;
+    // const url = `http://localhost:5000/api/getUsers`;
+    const url = `https://item-collection-app-bz.herokuapp.com/api/getUsers`;
     axios.get(url).then((response) => {
       setListOfUsers(response.data);
     });
