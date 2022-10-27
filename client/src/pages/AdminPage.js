@@ -63,6 +63,7 @@ export default function AdminPage() {
                 <td className="text-center align-middle">
                   <AdminPageManage
                     userID={user._id}
+                    email={user.email}
                     admin={user.admin}
                     blocked={user.blocked}
                   />

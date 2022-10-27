@@ -22,6 +22,8 @@ export default function Header(props) {
 
   const handleLogout = () => {
     localStorage.removeItem("appToken");
+    localStorage.removeItem("admin");
+    localStorage.removeItem("email");
     navigate("/");
   };
   const userToken = localStorage.getItem("appToken");

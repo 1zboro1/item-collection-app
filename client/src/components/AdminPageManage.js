@@ -1,10 +1,18 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function Manage(props) {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem("appToken");
+    localStorage.removeItem("admin");
+    localStorage.removeItem("email");
+    navigate("/");
+  };
   const clickBlock = (e) => {
     e.preventDefault();
     // const url = `http://localhost:5000/api/blockUser`;
@@ -15,7 +23,9 @@ export default function Manage(props) {
       })
       .then((response) => {
         alert("User blocked");
-        window.location.reload();
+        if (props.email === localStorage.getItem("email")) {
+          handleLogout();
+        }
       });
   };
   const clickUnblock = (e) => {
@@ -28,7 +38,6 @@ export default function Manage(props) {
       })
       .then((response) => {
         alert("User unblocked");
-        window.location.reload();
       });
   };
   const clickGiveAdmin = (e) => {
@@ -41,7 +50,6 @@ export default function Manage(props) {
       })
       .then((response) => {
         alert("You gave admin privileges to the user");
-        window.location.reload();
       });
   };
   const clickRevokeAdmin = (e) => {
@@ -54,12 +62,14 @@ export default function Manage(props) {
       })
       .then((response) => {
         alert("You revoked admin privileges to the user");
-        window.location.reload();
+        if (props.email === localStorage.getItem("email")) {
+          handleLogout();
+        }
       });
   };
   const clickDelete = (e) => {
     e.preventDefault();
-    // const url = `http://localhost:5000/api/deleteUser`;
+    // const url1 = `http://localhost:5000/api/deleteUser`;
     const url = `https://item-collection-app-bz.herokuapp.com/api/deleteUser`;
     axios
       .post(url, {
@@ -67,7 +77,9 @@ export default function Manage(props) {
       })
       .then((response) => {
         alert("User deleted");
-        window.location.reload();
+        if (props.email === localStorage.getItem("email")) {
+          handleLogout();
+        }
       });
   };
   const clickOverview = (e) => {

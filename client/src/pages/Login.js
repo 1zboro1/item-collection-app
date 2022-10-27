@@ -29,14 +29,18 @@ export default function Login() {
         email,
         password,
       });
-      localStorage.setItem("appToken", res.data);
+      localStorage.setItem("appToken", res.loginToken);
+      localStorage.setItem("admin", res.admin);
+      localStorage.setItem("email", res.email);
       window.location = "/";
     } catch (error) {
       console.log("Login failed", error);
-      alert("There was a problem with a login. Check entered data and if you're not banned")
+      alert(
+        "There was a problem with a login. Check entered data and if you're not banned"
+      );
     }
   };
-  
+
   return (
     <>
       <div className={pageTheme} style={{ minHeight: "100vh" }}>

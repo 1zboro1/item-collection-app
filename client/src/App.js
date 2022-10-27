@@ -13,13 +13,16 @@ import PageNotFound from "./pages/PageNotFound";
 
 function App() {
   const userToken = localStorage.getItem("appToken");
+  const adminToken = localStorage.getItem("admin");
   return (
     <div className="App">
       <Router>
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/adminpage" element={<AdminPage />} />
+          {adminToken === "admin" && userToken && (
+            <Route path="/adminpage" element={<AdminPage />} />
+          )}
           {userToken && (
             <Route path="/mycollections" element={<MyCollections />} />
           )}
