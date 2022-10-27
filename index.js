@@ -14,6 +14,7 @@ const blockUser = require("./routes/blockUser");
 const unblockUser = require("./routes/unblockUser");
 const giveAdmin = require("./routes/giveAdmin");
 const revokeAdmin = require("./routes/revokeAdmin");
+const createCollection = require("./routes/createCollection");
 
 connection();
 
@@ -29,6 +30,7 @@ app.use("/api/blockUser", blockUser);
 app.use("/api/unblockUser", unblockUser);
 app.use("/api/giveAdmin", giveAdmin);
 app.use("/api/revokeAdmin", revokeAdmin);
+app.use("/api/createCollection", createCollection);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname + "/client/build")));

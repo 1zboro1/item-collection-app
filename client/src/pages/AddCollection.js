@@ -6,6 +6,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Form, Container, Row, Col } from "react-bootstrap";
 import Header from "../components/Header";
 import CollectionImage from "../components/CollectionImage";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function AddCollection() {
   const { t } = useTranslation();
@@ -20,6 +22,32 @@ export default function AddCollection() {
   const [type, setType] = useState("");
   const [description, setDescription] = useState("");
   const [tags, setTags] = useState("");
+  const [image, setImage] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleCreateCollection = async (e) => {
+    e.preventDefault();
+    try {
+      // const url = `http://localhost:5000/api/createCollection`;
+      const url = "https://item-collection-app-bz.herokuapp.com/api/createCollection";
+      await axios
+        .post(url, {
+          email: localStorage.getItem("email"),
+          name,
+          type,
+          description,
+          image,
+        })
+        .then((response) => {
+          alert("Collection created");
+          navigate("/mycollections");
+        });
+    } catch (error) {
+      console.log("Creating error", error);
+      alert("Creating collection problem");
+    }
+  };
   return (
     <div className={pageTheme} style={{ minHeight: "100vh" }}>
       <Header theme={theme} click={switchTheme} />
@@ -29,7 +57,7 @@ export default function AddCollection() {
         >
           {t("createCollHeader")}
         </h1>
-        <Form style={{ marginTop: "50px" }}>
+        <Form style={{ marginTop: "50px" }} onSubmit={handleCreateCollection}>
           <Row className="mb-3">
             <Col
               xs={{ span: 12, offset: 0 }}
@@ -89,7 +117,7 @@ export default function AddCollection() {
               </Form.Group>
             </Col>
           </Row>
-          <Row>
+          {/* <Row>
             <Col
               xs={{ span: 12, offset: 0 }}
               sm={{ span: 8, offset: 2 }}
@@ -108,7 +136,7 @@ export default function AddCollection() {
                 />
               </Form.Group>
             </Col>
-          </Row>
+          </Row> */}
           <Row className="mt-3">
             <Col
               xs={{ span: 12, offset: 0 }}

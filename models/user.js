@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
+  _id: { type: mongoose.Schema.Types.ObjectId, required: true },
   username: { type: String, require: true },
   password: { type: String, require: true },
   email: { type: String, require: true },
@@ -9,14 +10,13 @@ const userSchema = new mongoose.Schema({
   blocked: { type: Boolean },
   collections: [
     {
-      coll_id: { type: String },
       coll_name: { type: String },
       type: { type: String },
       coll_description: { type: String },
       coll_image: { type: String },
       items: [
         {
-          item_id: { type: String },
+          _id: { type: mongoose.Schema.Types.ObjectId, required: true },
           item_name: { type: String },
           item_description: { type: String },
           comments: [
@@ -31,6 +31,7 @@ const userSchema = new mongoose.Schema({
           upload_date: { type: String },
         },
       ],
+      _id: { type: mongoose.Schema.Types.ObjectId, required: true },
     },
   ],
 });
