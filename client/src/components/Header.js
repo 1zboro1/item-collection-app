@@ -27,6 +27,7 @@ export default function Header(props) {
     navigate("/");
   };
   const userToken = localStorage.getItem("appToken");
+  const adminToken = localStorage.getItem("admin");
   const { t, i18n } = useTranslation();
   return (
     <Container className="bg-primary py-3" fluid>
@@ -67,7 +68,7 @@ export default function Header(props) {
                 {t("register")}
               </Dropdown.Item>
             )}
-            {userToken && (
+            {adminToken === "admin" && (
               <Dropdown.Item as={Link} to="/adminpage">
                 {t("adminPage")}
               </Dropdown.Item>
