@@ -19,8 +19,6 @@ export default function AdminPage() {
   const tableTextColor =
     theme === "light" ? "light text-center" : "dark text-center";
   const [listOfUsers, setListOfUsers] = useState([]);
-  let [blocked, setBlocked] = useState(false);
-  let [admin, setAdmin] = useState(false);
 
   useEffect(() => {
     // const url = `http://localhost:5000/api/getUsers`;
@@ -30,30 +28,6 @@ export default function AdminPage() {
     });
   });
 
-  const clickOverview = () => {
-    console.log("overview");
-  };
-  const clickManageBlock = () => {
-    if (blocked === false) {
-      setBlocked(true);
-      console.log("block");
-    } else {
-      setBlocked(false);
-      console.log("unblocked");
-    }
-  };
-  const clickDelete = () => {
-    console.log("delete");
-  };
-  const clickManagePermission = () => {
-    if (admin === false) {
-      setAdmin(true);
-      console.log("admin");
-    } else {
-      setAdmin(false);
-      console.log("nonAdmin");
-    }
-  };
   return (
     <div className={pageTheme} style={{ height: "100vh" }}>
       <Header theme={theme} click={switchTheme} />
@@ -89,12 +63,8 @@ export default function AdminPage() {
                 <td className="text-center align-middle">
                   <AdminPageManage
                     userID={user._id}
-                    overview={clickOverview}
-                    block={clickManageBlock}
-                    delete={clickDelete}
-                    permission={clickManagePermission}
-                    admin={admin}
-                    blocked={blocked}
+                    admin={user.admin}
+                    blocked={user.blocked}
                   />
                 </td>
               </tr>

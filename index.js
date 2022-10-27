@@ -8,6 +8,11 @@ const path = require("path");
 const loginRoutes = require("./routes/login");
 const registerRoutes = require("./routes/register");
 const getUsersRoutes = require("./routes/getUsers");
+const deleteUser = require("./routes/deleteUser");
+const blockUser = require("./routes/blockUser");
+const unblockUser = require("./routes/unblockUser");
+const giveAdmin = require("./routes/giveAdmin");
+const revokeAdmin = require("./routes/revokeAdmin");
 
 connection();
 
@@ -17,6 +22,11 @@ app.use(cors());
 app.use("/api/login", loginRoutes);
 app.use("/api/register", registerRoutes);
 app.use("/api/getUsers", getUsersRoutes);
+app.use("/api/deleteUser", deleteUser)
+app.use("/api/blockUser", blockUser)
+app.use("/api/unblockUser", unblockUser)
+app.use("/api/giveAdmin", giveAdmin)
+app.use("/api/revokeAdmin", revokeAdmin)
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname + "/client/build")));
