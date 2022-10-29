@@ -30,14 +30,15 @@ export default function AddCollection() {
     e.preventDefault();
     try {
       // const url = `http://localhost:5000/api/createCollection`;
-      const url = "https://item-collection-app-bz.herokuapp.com/api/createCollection";
+      const url =
+        "https://item-collection-app-bz.herokuapp.com/api/createCollection";
       await axios
         .post(url, {
           email: localStorage.getItem("email"),
-          name,
-          type,
-          description,
-          image,
+          coll_name: name,
+          coll_type: type,
+          coll_descritpion: description,
+          coll_image: image,
         })
         .then((response) => {
           alert("Collection created");

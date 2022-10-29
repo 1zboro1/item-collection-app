@@ -10,15 +10,16 @@ const userSchema = new mongoose.Schema({
   blocked: { type: Boolean },
   collections: [
     {
+      _id: { type: mongoose.Schema.Types.ObjectId, required: true },
       coll_name: { type: String },
       type: { type: String },
-      coll_description: { type: String },
+      coll_desc: { type: String },
       coll_image: { type: String },
       items: [
         {
           _id: { type: mongoose.Schema.Types.ObjectId, required: true },
           item_name: { type: String },
-          item_description: { type: String },
+          item_desc: { type: String },
           comments: [
             {
               user: { type: String },
@@ -31,7 +32,6 @@ const userSchema = new mongoose.Schema({
           upload_date: { type: String },
         },
       ],
-      _id: { type: mongoose.Schema.Types.ObjectId, required: true },
     },
   ],
 });

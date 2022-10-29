@@ -9,10 +9,10 @@ router.post("/", async (req, res) => {
         collections: [
           {
             _id: new mongoose.Types.ObjectId(),
-            coll_name: req.body.name,
-            type: req.body.type,
-            coll_description: req.body.descritpion,
-            coll_image: req.body.image,
+            coll_name: req.body.coll_name,
+            type: req.body.coll_type,
+            coll_desc: req.body.coll_descritpion,
+            coll_image: req.body.coll_image,
             items: [],
           },
         ],

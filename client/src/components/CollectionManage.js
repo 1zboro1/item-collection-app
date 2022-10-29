@@ -12,10 +12,10 @@ export default function ItemManage(props) {
   };
   return (
     <>
-      <Button variant="secondary" onClick={clickEdit} className="mb-1 mt-1">
+      <Button variant="secondary" className="mb-1 mt-1" onClick={clickEdit}>
         {t("edit")}
       </Button>{" "}
-      <Button variant="danger" onClick={clickDelete} className="mb-1 mt-1">
+      <Button variant="danger" className="mb-1 mt-1" onClick={clickDelete}>
         {t("tableDelete")}
       </Button>
     </>

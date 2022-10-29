@@ -18,12 +18,6 @@ export default function CollectionPage() {
   const tableTextColor =
     theme === "light" ? "light text-center" : "dark text-center";
 
-  const clickEdit = () => {
-    console.log("edit");
-  };
-  const clickDelete = () => {
-    console.log("delete");
-  };
 
   return (
     <div className={pageTheme} style={{ minHeight: "100vh" }}>
@@ -78,7 +72,7 @@ export default function CollectionPage() {
             </td>
             <td className="align-middle">Test item</td>
             <td className="text-center align-middle">
-              <ItemManage edit={clickEdit} delete={clickDelete} />
+              <ItemManage />
             </td>
           </tr>
         </tbody>

@@ -15,6 +15,8 @@ const unblockUser = require("./routes/unblockUser");
 const giveAdmin = require("./routes/giveAdmin");
 const revokeAdmin = require("./routes/revokeAdmin");
 const createCollection = require("./routes/createCollection");
+const deleteCollection = require("./routes/deleteCollection");
+const getCollections = require("./routes/getCollections");
 
 connection();
 
@@ -24,13 +26,14 @@ app.use(cors());
 app.use("/api/login", login);
 app.use("/api/register", register);
 app.use("/api/getUsers", getUsers);
-app.use("/api/getUser", getUser);
 app.use("/api/deleteUser", deleteUser);
 app.use("/api/blockUser", blockUser);
 app.use("/api/unblockUser", unblockUser);
 app.use("/api/giveAdmin", giveAdmin);
 app.use("/api/revokeAdmin", revokeAdmin);
 app.use("/api/createCollection", createCollection);
+app.use("/api/deleteCollection", deleteCollection);
+app.use("/api/getCollections", getCollections);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname + "/client/build")));
