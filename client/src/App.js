@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import MyCollections from "./pages/MyCollections";
 import Register from "./pages/Register";
 import PageNotFound from "./pages/PageNotFound";
+import CollectionsAdminPrivilege from "./pages/CollectionsAdminPrivilege";
 
 function App() {
   const userToken = localStorage.getItem("appToken");
@@ -34,6 +35,10 @@ function App() {
           )}
           {userToken && <Route path="/additem" element={<AddItem />} />}
           <Route path="/itempage" element={<ItemPage />} />
+          <Route
+            path="/collectionAdminPrivilege"
+            element={<CollectionsAdminPrivilege />}
+          />
           <Route path="/" exact element={<Home />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>

@@ -61,6 +61,7 @@ i18next
           image: "Image",
           edit: "Edit",
           logoutButton: "LOGOUT",
+          adminCollPriv: "Manage Collection as Admin"
         },
       },
       pl: {
@@ -116,6 +117,7 @@ i18next
           image: "Zdjęcie",
           edit: "Edytuj",
           logoutButton: "WYLOGUJ SIĘ",
+          adminCollPriv: "Zarządzaj Kolekcją jako Admin"
         },
       },
     },

@@ -7,10 +7,12 @@ import axios from "axios";
 export default function Manage(props) {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const adminNavigate = useNavigate();
   const handleLogout = () => {
     localStorage.removeItem("appToken");
     localStorage.removeItem("admin");
     localStorage.removeItem("email");
+    localStorage.removeItem("adminEditEmail");
     navigate("/");
   };
   const clickBlock = (e) => {
@@ -84,7 +86,11 @@ export default function Manage(props) {
   };
   const clickOverview = (e) => {
     e.preventDefault();
-    console.log("Overview");
+    adminNavigate("/collectionAdminPrivilege", {
+      state: {
+        userEmail: props.email,
+      },
+    });
   };
   return (
     <>

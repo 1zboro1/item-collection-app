@@ -2,14 +2,13 @@ const router = require("express").Router();
 const User = require("../models/user");
 router.post("/", async (req, res) => {
   var query = { email: req.body.email };
+
   try {
-    await User.updateOne(query, {
-      $pullAll: {
-        collections: [
-          {
-            _id: req.body._id,
-          },
-        ],
+    await User.findOneAndUpdate(query, {
+      $pull: {
+        collections: {
+          _id: req.body._id,
+        },
       },
       function(err, result) {
         if (err) {

@@ -24,6 +24,7 @@ export default function Header(props) {
     localStorage.removeItem("appToken");
     localStorage.removeItem("admin");
     localStorage.removeItem("email");
+    localStorage.removeItem("adminEditEmail");
     navigate("/");
   };
   const userToken = localStorage.getItem("appToken");

@@ -1,15 +1,17 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router-dom";
 import useLocalStorage from "use-local-storage";
 import Header from "../components/Header";
-import { Container, Row, Col, Button, Table } from "react-bootstrap";
+import { Container, Row, Col, Table } from "react-bootstrap";
 import axios from "axios";
 import CollectionManage from "../components/CollectionManage";
 import placeholder_img from "../imgs/placeholder-image.png";
 
-export default function MyCollections() {
+export default function CollectionsAdminPrivilege() {
+  const location = useLocation();
+  let userEmail = location.state.userEmail;
   const { t } = useTranslation();
   const [listOfCollections, setListOfCollections] = useState([]);
   const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");
@@ -25,11 +27,9 @@ export default function MyCollections() {
   useEffect(() => {
     // const url = "http://localhost:5000/api/getCollections";
     const url = `https://item-collection-app-bz.herokuapp.com/api/getCollections`;
-    axios
-      .post(url, { email: localStorage.getItem("email") })
-      .then((response) => {
-        setListOfCollections(response.data);
-      });
+    axios.post(url, { email: userEmail }).then((response) => {
+      setListOfCollections(response.data);
+    });
   });
   return (
     <div className={pageTheme} style={{ minHeight: "100vh" }}>
@@ -38,7 +38,7 @@ export default function MyCollections() {
         className="text-center"
         style={{ fontSize: "3rem", textAlign: "center", marginTop: "3rem" }}
       >
-        {t("myCollHeader")}
+        {t("adminCollPriv")}
       </h1>
       <Table
         striped
@@ -79,7 +79,7 @@ export default function MyCollections() {
                 <td className="text-center align-middle">
                   <CollectionManage
                     coll_id={collection._id}
-                    email={localStorage.getItem("email")}
+                    email={userEmail}
                   />
                 </td>
               </tr>
@@ -93,15 +93,7 @@ export default function MyCollections() {
             md={{ span: 4, offset: 4 }}
             lg={{ span: 4, offset: 4 }}
             style={{ display: "flex", justifyContent: "center" }}
-          >
-            <div className="d-grid gap-2 mb-5 ">
-              <Link to="/addcollection">
-                <Button type="submit" size="lg">
-                  <strong>{t("addCollButton")}</strong>
-                </Button>
-              </Link>
-            </div>
-          </Col>
+          ></Col>
         </Row>
       </Container>
     </div>
