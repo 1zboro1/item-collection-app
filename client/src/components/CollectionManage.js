@@ -7,6 +7,23 @@ export default function ItemManage(props) {
   const { t } = useTranslation();
   const clickEdit = async (e) => {
     console.log(`Edit ${props.coll_id}`);
+    e.preventDefault();
+    // try {
+    //   const url = `http://localhost:5000/api/getSingleCollection`;
+    //   // const url =
+    //   //   "https://item-collection-app-bz.herokuapp.com/api/getSingleCollection";
+    //   await axios
+    //     .post(url, {
+    //       email: props.email,
+    //       _id: props.coll_id,
+    //     })
+    //     .then((response) => {
+    //       console.log(response);
+    //     });
+    // } catch (error) {
+    //   console.log("Getting single collection error", error);
+    //   alert("Getting single collection problem");
+    // }
   };
   const clickDelete = async (e) => {
     console.log(`Delete ${props.coll_id}`);

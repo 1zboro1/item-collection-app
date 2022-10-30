@@ -8,7 +8,6 @@ const path = require("path");
 const login = require("./routes/login");
 const register = require("./routes/register");
 const getUsers = require("./routes/getUsers");
-const getUser = require("./routes/getUser");
 const deleteUser = require("./routes/deleteUser");
 const blockUser = require("./routes/blockUser");
 const unblockUser = require("./routes/unblockUser");
@@ -17,6 +16,7 @@ const revokeAdmin = require("./routes/revokeAdmin");
 const createCollection = require("./routes/createCollection");
 const deleteCollection = require("./routes/deleteCollection");
 const getCollections = require("./routes/getCollections");
+const getSingleItem = require("./routes/getSingleCollection");
 
 connection();
 
@@ -34,6 +34,7 @@ app.use("/api/revokeAdmin", revokeAdmin);
 app.use("/api/createCollection", createCollection);
 app.use("/api/deleteCollection", deleteCollection);
 app.use("/api/getCollections", getCollections);
+app.use("/api/getSingleItem", getSingleItem);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname + "/client/build")));
