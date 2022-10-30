@@ -21,8 +21,8 @@ export default function AddCollection() {
   const [name, setName] = useState("");
   const [type, setType] = useState("");
   const [description, setDescription] = useState("");
-  const [tags, setTags] = useState("");
-  const [image, setImage] = useState("");
+  // const [tags, setTags] = useState("");
+  // const [image, setImage] = useState("");
 
   const navigate = useNavigate();
 
@@ -38,7 +38,7 @@ export default function AddCollection() {
           coll_name: name,
           coll_type: type,
           coll_descritpion: description,
-          coll_image: image,
+          coll_image: "https://m.media-amazon.com/images/I/51MR3422P6L.jpg",
         })
         .then((response) => {
           alert("Collection created");

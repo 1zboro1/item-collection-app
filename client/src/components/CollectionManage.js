@@ -5,10 +5,10 @@ import { useTranslation } from "react-i18next";
 export default function ItemManage(props) {
   const { t } = useTranslation();
   const clickEdit = () => {
-    console.log("edit");
+    console.log(`Edit ${props.coll_id}`);
   };
   const clickDelete = () => {
-    console.log("delete");
+    console.log(`Delete ${props.coll_id}`);
   };
   return (
     <>

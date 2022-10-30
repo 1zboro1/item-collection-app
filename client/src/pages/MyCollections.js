@@ -7,6 +7,7 @@ import Header from "../components/Header";
 import { Container, Row, Col, Button, Table } from "react-bootstrap";
 import axios from "axios";
 import CollectionManage from "../components/CollectionManage";
+import placeholder_img from "../imgs/placeholder-image.png";
 
 export default function MyCollections() {
   const { t } = useTranslation();
@@ -22,10 +23,10 @@ export default function MyCollections() {
     theme === "light" ? "bg-light text-dark" : "bg-dark text-white";
 
   useEffect(() => {
-    const url = "http://localhost:5000/api/getCollections";
-    // const url = `https://item-collection-app-bz.herokuapp.com/api/getCollections`;
+    // const url = "http://localhost:5000/api/getCollections";
+    const url = `https://item-collection-app-bz.herokuapp.com/api/getCollections`;
     axios
-      .get(url, { email: localStorage.getItem("email") })
+      .post(url, { email: localStorage.getItem("email") })
       .then((response) => {
         setListOfCollections(response.data);
       });
@@ -56,32 +57,31 @@ export default function MyCollections() {
           </tr>
         </thead>
         <tbody className={tableTextColor}>
-          {/* {console.log(localStorage.getItem("email"))} */}
-          {/* {console.log(listOfCollections)} */}
-          {/* {listOfCollections.map((collection) => {
+          {listOfCollections.map((collection) => {
             return (
               <tr key={collection._id}>
-                {console.log(listOfCollections)}
-                <td className="align-middle">{collection.coll_image}</td>
+                <td className="align-middle">
+                  {collection.coll_image ? (
+                    <img
+                      src={collection.coll_image}
+                      alt="collection item"
+                      style={{ maxHeight: "100px" }}
+                    />
+                  ) : (
+                    <img
+                      src={placeholder_img}
+                      alt="collection item"
+                      style={{ maxHeight: "100px" }}
+                    />
+                  )}
+                </td>
                 <td className="align-middle">{collection.coll_name}</td>
-                <td className="align-middle">{collection.type}</td>
-                <td className="text-center align-middle"></td>
+                <td className="text-center align-middle">
+                  <CollectionManage coll_id={collection._id} />
+                </td>
               </tr>
             );
-          })} */}
-          <tr>
-            <td className="align-middle">
-              <img
-                src="https://m.media-amazon.com/images/I/51MR3422P6L.jpg"
-                alt="item"
-                style={{ maxHeight: "100px" }}
-              />
-            </td>
-            <td className="align-middle">Test item</td>
-            <td className="text-center align-middle">
-              <CollectionManage />
-            </td>
-          </tr>
+          })}
         </tbody>
       </Table>
       <Container>
